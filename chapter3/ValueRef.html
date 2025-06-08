@@ -1,0 +1,26 @@
+<html>
+    <script>
+        let a = 10;
+        let b = a;
+
+        a ++;
+        console.log('a ',a);
+        console.log('b ',b);    
+
+        let obj = {
+            value : 100
+        };
+        let obj2 = obj;
+        obj.value ++;
+
+        console.log('obj.value ',obj.value);
+        console.log('obj2.value ',obj2.value);
+
+        obj2 = {
+            value : 200
+        }
+        obj.value = 100;
+        console.log('obj.value ',obj.value);
+        console.log('obj2.value ',obj2.value);
+    </script>
+</html>    
