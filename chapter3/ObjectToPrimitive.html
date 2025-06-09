@@ -1,0 +1,88 @@
+<html>
+    <script>
+       
+        let obj = {
+
+        };
+        console.log('!!obj ',!!obj);
+       
+        console.log('Obj ', obj +"");
+        console.log('obj.toString() ',obj.toString());
+        /*
+        +obj.toString()
+        */
+        console.log('+obj ',+obj);
+        obj = {
+            toString()
+            {
+                console.log('ToString invoked');
+                return "3";
+            }
+        };
+        console.log('!!Obj ', !!obj);
+        console.log('Obj ', obj +"");
+        console.log('obj.toString() ',obj.toString());
+        console.log('+obj ',+obj);
+        /*
+            if toString()
+                if primitive
+                    convert
+        */
+
+        obj = {
+            toString()
+            {
+                console.log('toString invoked');
+                return "10";
+            },
+            valueOf()
+            {
+                console.log('valueOf invoked');
+                return "3";
+            }
+        };
+        console.log('-------------');
+        console.log('Obj ', obj +"");
+        console.log('+obj ',+obj);
+        /*
+            if valueOf()-> toString()
+                if primitive
+                    convert
+        */
+       obj = {
+            toString()
+            {
+                console.log('toString invoked');
+                return "10";
+            },
+            valueOf()
+            {
+                console.log('valueOf invoked');
+                return {};
+            }
+        };
+        console.log('-------------');
+        console.log('Obj ', obj +"");
+        console.log('+obj ',+obj);
+        /*
+            if valueOf()-> toString()
+                if primitive
+                    convert
+        */
+       obj = {
+            toString()
+            {
+                console.log('toString invoked');
+                return {};
+            },
+            valueOf()
+            {
+                console.log('valueOf invoked');
+                return {};
+            }
+        };
+        console.log('-------------');
+        console.log('Obj ', obj +"");
+        console.log('+obj ',+obj);
+    </script>
+</html>    

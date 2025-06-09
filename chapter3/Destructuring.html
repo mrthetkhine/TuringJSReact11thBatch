@@ -1,0 +1,24 @@
+<html>
+    <script>
+       let arr = [10,20,30,40,50];
+       /*
+       let a = arr[0];
+       let b = arr[1];
+       */ 
+       let [a, , , b,...c] = arr;//array destructuring
+
+       console.log('A ',a);
+       console.log('B ',b);
+       console.log('C ',c);
+
+       let d = 100;
+       let e = 200;
+       [d,e] = [e,d];
+       console.log('E ',e);
+       console.log('D ',d);
+
+       let [first,...rest] = "Hello";
+       console.log('First ',first);
+       console.log('Rest ',rest);
+    </script>
+</html>    
