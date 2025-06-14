@@ -1,0 +1,53 @@
+<html>
+    <script>
+       
+        let c = 10 + 2;//number addition
+        let data = "Hello" + c;//string concatenation
+        console.log('C ',c);
+        console.log('Data ',data);
+
+        let obj = {
+            name : "TK",
+        }
+        let d = 100;
+        let result = obj + d;
+
+        /*
+            obj to Primitive [object Object]=>string
+            string + number 
+            string + string
+            concat
+            [object Object]100
+        */
+       console.log('result ',result);
+        obj = {
+            valueOf(){
+                console.log('value of');
+                return 10;
+            }
+        }
+        result = obj + d;
+        /*
+            obj + d
+            obj.valueOf() + d 
+            number + number
+            10+100
+        */
+        console.log('result ',result);
+        d = true;
+        result = obj + d;
+        /*
+            obj + d
+            obj.valueOf() + d 
+            number + boolean
+            10+number(true)
+            10+1    
+
+        */
+        console.log('result ',result);
+
+        console.log('null + undefined ',null + undefined);  
+        console.log('+undefined ',+ undefined);
+        console.log('true + undefined ',true + null);  
+    </script>
+</html>    

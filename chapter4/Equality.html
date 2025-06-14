@@ -1,0 +1,29 @@
+<html>
+    <script>
+       
+        let a = "10";
+        let b = 10;
+        console.log('A==B ',a==b);
+        console.log('A===B ',a===b);
+
+        console.log('10 == 10 ', 10 == 10);
+        console.log('null == undefined ', null == undefined);
+        console.log('"10" == 10', "10" == 10);
+
+         console.log('"1" == true', "1" == true);
+         /*
+         '1'==true
+         '1'== 1
+         1==1
+         */
+        let  obj = {
+            valueOf(){
+                console.log('value of');
+                return 10;
+            }
+        }
+        console.log('obj == 10 ', obj == 10);
+        console.log('0 == undefined ', 0 == undefined);
+        console.log('0 == null ', 0 == null);
+    </script>
+</html>    
