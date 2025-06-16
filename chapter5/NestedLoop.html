@@ -1,0 +1,36 @@
+<html>
+    <body>
+    
+    </body>
+    <script>
+        let arr = [
+            [1,2,3],
+            [4,5,6],
+            [7,8,9],
+        ];
+        console.log('Arr [0] ',arr[0]);
+        console.log('Arr [0][2[] ',arr[0][2]);
+        console.log('Arr [2][1] ',arr[2][1]);
+
+        let element = +window.prompt('Enter element');
+        outer:for(let i=0;i< arr.length;i++)
+        {
+            console.log('outer loop i ',i);
+            
+            inner:for(let j=0;j< arr[i].length;j++)
+            {
+                console.log('inner loop j ',j);
+                //
+                if(arr[i][i]==element)
+                {
+                    console.log('Found at i ',i, ' j ',j);
+                    break outer;
+                    //return;
+                }
+                console.log('Arr[i][j] ',arr[i][j]);
+            }
+            
+        }
+        console.log('End');
+    </script>
+</html>    

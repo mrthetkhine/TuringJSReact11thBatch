@@ -1,0 +1,36 @@
+<html>
+    <body>
+    
+    </body>
+    <script>
+        let obj = {
+            name : "TK",
+            address:"Somewhere"
+        };
+        console.log('Keys ',Object.keys(obj));
+        console.log('Values ',Object.values(obj));
+       
+        for(const key in obj)
+        {
+            console.log('Key ',key);
+            console.log('Value ',obj[key]);
+        }
+        for(const key of Object.keys(obj))
+        {
+            console.log('Key ',key);
+            console.log('Value ',obj[key]);
+        }
+         console.log('Entries ',Object.entries(obj));
+         /*
+            [
+                ['name','TK'],
+                ['age',40],
+            ]
+         */
+        for(const [key,value] of Object.entries(obj))
+        {
+            console.log('Key ',key);
+            console.log('Value ',value);
+        }
+    </script>
+</html>    

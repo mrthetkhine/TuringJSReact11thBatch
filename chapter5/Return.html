@@ -1,0 +1,29 @@
+<html>
+    <body>
+    
+    </body>
+    <script>
+        function hello()
+        {
+            console.log('start');
+            for(let i=0;i < 10; i++)
+            {
+                if(i==5)
+                {
+                    return;
+                }
+                console.log('I ',i);
+            }
+            console.log('end');
+        }
+        hello();
+        console.log('Next');
+
+        function add(x,y)
+        {
+            return x+y;
+        }
+        let data  = add(2,3);
+        console.log('Data ',data);
+    </script>
+</html>    

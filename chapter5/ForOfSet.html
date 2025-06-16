@@ -1,0 +1,23 @@
+<html>
+    <body>
+    
+    </body>
+    <script>
+        let items = [1,2,2,1,3];
+        let set = new Set(items);
+        console.log('set ',set);
+        
+        for(const item of set)
+        {
+            console.log('item ',item);
+        }
+
+        let m = new Map([[1, "one"]]);
+        console.log('m ',m);
+        for(const [key,value] of m)
+        {
+            console.log('key ',key);
+            console.log('value ',value);
+        }
+    </script>
+</html>    
