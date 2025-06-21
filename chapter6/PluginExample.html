@@ -1,0 +1,38 @@
+<html>
+   
+    <script>
+        
+        
+        function plugin(param)
+        {
+            let defaultParm = {
+                color:'green',
+                size: 10
+            }
+            let config = Object.assign({},defaultParm,param);
+            console.log('Param ',config);
+            console.log('Default ',defaultParm)
+        }
+        plugin({
+            color: 'red'
+        })
+        let result = Object.assign({ 
+            x: 100,
+            y: 200
+        },{
+            x:300,
+            z :400
+        });
+        console.log('Result ',result);  
+        let obj1 = {
+            name : "Aung Aung",
+            age : 20
+        };
+        let obj2 = Object.assign({},obj1);
+        console.log('Obj2 ',obj2);
+        let obj3 = {
+            ... obj1
+        };
+        console.log('Obj3 ',obj3);
+    </script>
+</html>    

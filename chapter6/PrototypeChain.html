@@ -1,0 +1,19 @@
+<html>
+   
+    <script>
+        let grandParent = {
+            x : 100,
+            y : 200
+        };
+        let parent = Object.create(grandParent);
+        parent.z = 300;
+        parent.x = 400;//write
+
+        console.log('Parent ',parent);
+        console.log('Parent.x ',parent.x);//read
+        console.log('grandParent.x ',grandParent.x);
+
+        let child = Object.create(parent);
+        console.log('Child.y ',child.y);
+    </script>
+</html>    

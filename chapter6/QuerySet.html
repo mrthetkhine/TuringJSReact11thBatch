@@ -1,0 +1,33 @@
+<html>
+   
+    <script>
+        let obj = {
+            key1 : "Aung Aung",
+            key2 : 20
+        };
+        console.log('Obj.key1 ',obj.key1);
+
+        let str = 'key1';
+        console.log('obj ',obj[str]);
+
+        for(let prop in obj)
+        {
+            console.log('Prop ',prop);
+            console.log('Value ',obj[prop]);
+        }
+        let obj2 = {
+            name:"Aung Aung",
+            address: {
+                city: "YGN",
+                country: "Myanmar"
+            }
+        
+        }
+        //obj2.address.city  ="Something";
+        console.log('Obj2 ',obj2.address?.city);
+        delete obj2.address;
+        console.log('Obj2 ',obj2);  
+        console.log('Delete ',delete obj2.toString);
+        console.log('Obj2 ',obj2.toString());
+    </script>
+</html>    

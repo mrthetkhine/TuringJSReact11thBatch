@@ -1,0 +1,28 @@
+<html>
+   
+    <script>
+        let obj = {
+            name : "TK",//username
+            age : 40,            
+            secret: "Something",
+            toJSON()
+            {
+                console.log('toJSON called');
+                return {
+                    username: this.name,
+                    age: this.age
+                }
+            },
+            display : function()
+            {
+                console.log('Name ',this.name);
+                console.log('Age ',this.age);
+            }
+        }
+        let str = JSON.stringify(obj);//serialization
+        console.log('Str ',str);
+
+        let obj2 = JSON.parse(str);//deserialization
+        console.log('Obj2 ',obj2);
+    </script>
+</html>    

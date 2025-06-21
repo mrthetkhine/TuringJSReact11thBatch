@@ -1,0 +1,25 @@
+<html>
+   
+    <script>
+        let items = [];
+        items.push(100);//[100]
+        items.push(200);//[100,200];
+
+        console.log('Items ',items);
+
+        let parent = {
+            items: [10,20]
+        };
+        let child = Object.create(parent);
+        child.items.push(30);//
+
+        console.log('parent.items ',parent.items);
+        console.log('child.items ',child.items);
+        console.log('parent ',parent);
+        console.log('Child ',child);
+
+        child.items = [200,300];
+        console.log('child.items ',child.items);
+        console.log('parent.items ',parent.items);
+    </script>
+</html>    

@@ -1,0 +1,31 @@
+<html>
+   
+    <script>
+        
+        let obj = {
+            name:"Aung Aung",
+            address: {
+                city: "YGN",
+                country: "Myanmar"
+            }
+        
+        }
+        console.log('address in obj2 ','address' in obj);
+        console.log('toString in obj2 ','toString' in obj);
+        console.log('another in obj2 ','another' in obj);
+        console.log('toString hasOwnProperty obj2 ',obj.hasOwnProperty('toString'));
+        console.log('name hasOwnProperty obj2 ',obj.hasOwnProperty('name'));
+
+        for(let p in obj)
+        {
+            console.log('Prop ',p);
+            console.log('Value ',obj[p]);
+        }
+        console.log('isEnumerable name ',obj.propertyIsEnumerable('name'));
+        console.log('isEnumerable toString ',obj.propertyIsEnumerable('toString'));
+
+        console.log('Object.keys ',Object.keys(obj));
+        console.log('Object.values ',Object.values(obj));
+        console.log('Entries ',Object.entries(obj));
+    </script>
+</html>    
