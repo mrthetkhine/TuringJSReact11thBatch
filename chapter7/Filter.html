@@ -1,0 +1,43 @@
+<html>
+   
+    <script>
+        
+        let students = [
+            {
+                name: "Aung Aung",
+                gender:"Male",
+                age : 20,
+            },
+            {
+                name: "Win Win",
+                gender:"Female",
+                age : 20,
+            },
+            {
+                name: "Hla Aung",
+                gender:"Male",
+                age : 30,
+            },
+            {
+                name: "Mya Tint",
+                gender:"Female",
+                age : 35,
+            },
+        ];
+        /*
+        let females =[];
+        for(const stud of students)
+        {
+            if(stud.gender==='Female')
+            {
+                females.push(stud);
+            }
+        }*/
+        let females = students.filter(stud=>stud.gender==='Female');
+        console.log('Females ',females);
+
+        let arr = [1,2,3,4,5,6];
+        let even = arr.filter(i=> i%2==0);
+        console.log('Even ',even);
+    </script>    
+</html>    

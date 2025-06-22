@@ -1,0 +1,18 @@
+<html>
+   
+    <script>
+        
+        let arr = [1,-2,3,4,5];
+        let firstEven = arr.find(item=>item %2==0);
+        console.log('first even ',firstEven);
+
+        let firstEvenIndex = arr.findIndex(item=>item %2==0);
+        console.log('EvenIndex ',firstEvenIndex);
+
+        let allGtZero = arr.every(item=>item>0);
+        console.log('AllGtZero ',allGtZero);
+
+        let anyGtZero = arr.some(item=>item>0);
+        console.log('AnyGtZero ',anyGtZero);
+    </script>    
+</html>    

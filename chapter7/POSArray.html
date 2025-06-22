@@ -1,0 +1,28 @@
+<html>
+   
+    <script>
+        let items = [
+            {
+                name:"Apple",
+                price:100,
+                quantity:2,
+            },
+            {
+                name:"Orange",
+                price:200,
+                quantity:4,
+            },
+            {
+                name:"Banana",
+                price:10,
+                quantity:20,
+            },
+        ];
+        let str = '';
+        for(const item of items)
+        {
+            str += `Name= ${item.name} Price =${item.price} Quantity= ${item.quantity} Total=${item.price*item.quantity} \r\n`;
+        }
+        console.log(str);
+    </script>    
+</html>    

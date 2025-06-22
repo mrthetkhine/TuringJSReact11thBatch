@@ -1,0 +1,14 @@
+<html>
+   
+    <script>
+        let arr = [1,2,3];
+        console.log('typeof arr ',typeof arr);
+        console.log('Window.Array ',window.Array);
+        arr.forEach(function(i){
+            console.log('Item is ',i);
+        })
+        arr.forEach((item, index, arr)=>{
+            console.log('Item is ',item, ' index ',index, ' Arr ',arr);
+        })
+    </script>    
+</html>    
