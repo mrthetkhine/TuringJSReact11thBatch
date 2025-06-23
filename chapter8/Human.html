@@ -1,0 +1,23 @@
+
+<html>
+   
+    <script>
+        function Human(name,age)
+        {
+            this.name = name;
+            this.age = age;
+
+            this.display = function()
+            {
+                console.log('Name ',this.name, ' Age ',this.age);
+            }
+        }
+        let h1 = new Human('TK',40);
+        let h2 = new Human('Another ',30);
+
+        console.log('h1 ',h1);
+        console.log('h2 ',h2);
+        h1.display();
+        h2.display();
+    </script>    
+</html>    

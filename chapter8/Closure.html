@@ -1,0 +1,23 @@
+
+<html>
+   
+    <script>
+        function unique()
+        {
+            let counter =0;
+            return function(){
+                console.log('inner function ');
+                return counter++;
+            }
+        }
+        let nextId = unique();
+        console.log('NexId ',nextId());
+        console.log('NexId ',nextId());
+        console.log('NexId ',nextId());
+
+        let another = unique();
+        console.log('Another ',another());
+        console.log('Another ',another());
+        console.log('Another ',another());
+    </script>    
+</html>    

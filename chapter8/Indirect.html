@@ -1,0 +1,22 @@
+
+<html>
+   
+    <script>
+        
+        let obj = {
+            value : 100,
+            display(message)
+            {
+                console.log('this ',this);
+                console.log('message ',message,'Value ',this.value);
+            }
+        }
+        let obj2 = {
+            value :200
+        }
+        let m = obj.display;
+        console.log('type of m ',typeof m);
+        m.call(obj2,'hello');
+        m.apply(obj2,['hello']);
+    </script>    
+</html>    

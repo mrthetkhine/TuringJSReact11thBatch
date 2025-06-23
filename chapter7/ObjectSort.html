@@ -1,0 +1,44 @@
+<html>
+   
+    <script>
+        
+        let students = [
+            {
+                name : "Aung Aung",
+                age : 30
+            },
+            {
+                name : "Tin Mya",
+                age : 20
+            },
+            {
+                name : "Tin Win",
+                age : 40
+            },
+            {
+                name : "Aung Naing",
+                age : 20
+            },
+            {
+                name : "Win Myaing",
+                age : 26
+            },
+        ];
+        students.sort((studA,studB)=> studA.age - studB.age);
+        console.log('Students ',JSON.stringify(students));
+
+        students.sort((studA,studB)=> studB.age - studA.age);
+        console.log('Students ',students);
+
+        students.sort((studA,studB)=>{
+            if(studA.age-studB.age == 0)
+            {
+                return studA.name.localeCompare(studB.name);
+            }
+            return studA.age-studB.age;    
+            
+        });
+        console.log('Students ',students);
+
+    </script>    
+</html>    

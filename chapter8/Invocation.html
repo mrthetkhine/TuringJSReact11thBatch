@@ -1,0 +1,22 @@
+
+<html>
+   
+    <script>
+        function hello()
+        {
+            console.log('Hello');
+        }
+        hello();
+        let obj = {
+            value : 100,
+            display()
+            {
+                console.log('this ',this);
+                console.log('Value ',this.value);
+            }
+        }
+        obj.display();//invoke as method
+        let date = new Date();
+        console.log('Date ',date);
+    </script>    
+</html>    
