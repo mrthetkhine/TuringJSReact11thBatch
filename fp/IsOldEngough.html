@@ -1,0 +1,14 @@
+
+<html>
+   
+    <script>
+        
+        let currentYear = 2025;
+        let isOldEnough = function(birthYear)//impure function
+        {
+            return birthYear <= currentYear-18;
+        }
+        //pure function
+        const isOldEnough3 = (currentYear, birthYear) => birthYear <= currentYear-18;
+    </script>    
+</html>    

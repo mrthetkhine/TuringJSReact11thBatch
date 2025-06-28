@@ -1,0 +1,44 @@
+
+<html>
+   
+    <script>
+        
+     
+        function payment(ordrId, amount)
+        {
+            console.log('Payment ',ordrId, ' Amount ',amount);
+
+            return amount * 2;
+            
+        }
+        function order()
+        {
+            console.log('Order');
+        }
+        function once(fn,callback)
+        {
+            let done = false;
+            return function(...rest)
+            {
+                if(!done)
+                {
+                    done = true;
+                    return fn(...rest);
+                }
+                else
+                {
+                    callback();
+                }
+            }
+        }
+        payment = once(payment,()=>{console.log('Payment already  done')});
+        order = once(order,()=>{console.log('Order already done')});
+        console.log( payment('111',100));
+        payment('111',100);
+        payment('111',100);
+        order();
+        order();
+        order();
+        
+    </script>    
+</html>    

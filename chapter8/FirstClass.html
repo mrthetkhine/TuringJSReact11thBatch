@@ -1,0 +1,29 @@
+
+<html>
+   
+    <script>
+        
+        function hello()
+        {
+            console.log('Hello ');
+        }
+        let fun = hello;//Rule
+        fun();
+
+        function getFun()
+        {
+            return function(){
+                console.log('Fun function')
+            }
+        }
+        fun = getFun();//Rule
+        fun();
+
+        function acceptFun(fn)
+        {
+            console.log('acceptFun ');
+            fn();
+        }
+        acceptFun(fun);
+    </script>    
+</html>    

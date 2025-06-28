@@ -1,0 +1,32 @@
+
+<html>
+   
+    <script>
+        
+        function hello(str)
+        {
+            console.log('str ',str);
+        }
+        hello();
+        hello('hello','hi');
+        let arr = [10,2,100,9];
+        console.log('Math.min ', Math.min(...arr));
+
+        function proces([x,y])
+        {
+            //let x = arr[0];
+            //let y = arr[1];
+            console.log('x ',x,' y ',y);
+        }
+        proces([10,20]);
+
+        function processObj({name,age})
+        {
+            //let name = obj.name;
+            //let age = obj.age;
+
+            console.log('Name ',name, ' age ',age);
+        }
+        processObj({name:'TK',age:30});
+    </script>    
+</html>    

@@ -1,0 +1,18 @@
+
+<html>
+   
+    <script>
+        
+        let obj = {
+            name : "TK",
+            display(){
+                console.log('Name ',this.name);
+            }
+        }
+        let obj2 = {
+            name: "Another"
+        };
+        let m = obj.display.bind(obj2);
+        m();
+    </script>    
+</html>    
