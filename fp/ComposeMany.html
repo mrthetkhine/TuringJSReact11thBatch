@@ -1,0 +1,26 @@
+
+<html>
+   
+    <script>
+        const appendHi = (x)=> x+ ' hi';
+        const toUpper = (x) => x.toUpperCase();
+        const appendGreet = (x)=> x+ ' Greet';
+       
+        function compose(...fns)
+        {
+            return function(x)
+            {
+                return fns.reduceRight((input,fn)=> fn(input) ,x);
+            }
+        }
+        let newFun = compose(toUpper,appendHi,appendGreet);
+        console.log('newFun ',newFun('hello'));
+
+        let incOne = (x)=>x+1;
+        let double = (x)=>x*2;
+        let add = (x,y)=>x+y;
+
+        newFun = compose( double,toUpper,incOne);
+        console.log('NewFun ',newFun(1));
+    </script>    
+</html>    

@@ -1,0 +1,19 @@
+
+<html>
+   
+    <script>
+        let arr = ['1','2','3'];
+        console.log('Arr.map ',arr.map);
+        
+        function demethodnize(fn)
+        {
+            return function(obj,...rest)
+            {
+                return fn.call(obj,...rest);
+            }
+        }
+        let map = demethodnize(Array.prototype.map);
+        let arr2 = map(arr,(x)=>x*2);
+        console.log('Arr2 ',arr2);
+    </script>    
+</html>    

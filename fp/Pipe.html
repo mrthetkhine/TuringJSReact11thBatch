@@ -1,0 +1,21 @@
+
+<html>
+   
+    <script>
+        const appendHi = (x)=> x+ ' hi';
+        const toUpper = (x) => x.toUpperCase();
+        const appendGreet = (x)=> x+ ' Greet';
+       
+        function pipe(...fns)
+        {
+            return function(x)
+            {
+                return fns.reduce((input,fn)=> fn(input) ,x);
+            }
+        }
+        let newFun = pipe(appendHi,toUpper,appendGreet);
+        console.log('newFun ',newFun('hello'));
+
+     
+    </script>    
+</html>    

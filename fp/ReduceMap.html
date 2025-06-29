@@ -1,0 +1,22 @@
+
+<html>
+   
+    <script>
+        
+        let arr = [1,2,3,4,5];
+        let arr2 = arr.map(x=>x*2);
+        console.log('arr2 ',arr2);
+
+        console.log('Arr ',arr);
+        let total = arr.reduce((a,b)=>{
+            console.log('A ',a, ' B ',b);
+            return a+b;
+        },0);
+        console.log('total ',total);
+
+        let arr3 = arr.reduce( (result,item)=>{
+            return [...result,item*2];
+        },[]);
+        console.log('Arr 3',arr3);
+    </script>    
+</html>    

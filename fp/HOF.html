@@ -1,0 +1,30 @@
+
+<html>
+   
+    <script>
+        
+        function hello()
+        {
+            console.log('Hello');
+        }
+        function hi()
+        {
+            console.log('hi');
+        }
+        function logger(fn)
+        {
+            return function(...rest)
+            {
+                console.log(fn.name , ' was called');
+                let retValue = fn(...rest);
+                console.log(fn.name , ' was finished');
+                return retValue
+            }
+        }
+        hello = logger(hello);
+        hi = logger(hi);
+
+        hello();
+        hi();
+    </script>    
+</html>    

@@ -1,0 +1,79 @@
+
+<html>
+   
+    <script>
+        
+        let students = [
+            {
+                name : "Aung Aung",
+                age : 30,
+                gender:"Male",
+                address:"YGN",
+            },
+            {
+                name : "Win Aung",
+                age : 30,
+                gender:"Male",
+                address:"YGN",
+            },
+             {
+                name : "Khin Khin",
+                age : 32,
+                gender:"Female",
+                address:"MDY",
+            },
+             {
+                name : "Hla Win",
+                age : 34,
+                gender:"Male",
+                address:"YGN",
+            },
+            {
+                name : "Win Win",
+                age : 32,
+                gender:"Female",
+                address:"Bago",
+            },
+
+        ];
+        /*
+        {
+            'Male':[],
+            'Female':[],
+        }
+            
+        */
+       /*
+       let group ={};
+       for(const student of students)
+       {
+           if(!group[student.gender]) 
+           {
+            group[student.gender]= [student]; 
+           }
+           else
+           {
+            group[student.gender].push(student); 
+           }
+       }
+       console.log('group ',group);
+       */ 
+      let group = students.reduce((group,stud)=>{
+        if(!group[stud.gender])
+        {
+            return {
+                ...group,
+                [stud.gender]:[stud]
+            };
+        }
+        else
+        {
+            return {
+                ...group,
+                [stud.gender]:[...group[stud.gender], stud]
+            };
+        }
+      },{});
+      console.log('Group ',group);
+    </script>    
+</html>    

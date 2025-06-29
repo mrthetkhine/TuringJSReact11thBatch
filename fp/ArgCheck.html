@@ -1,0 +1,26 @@
+
+<html>
+   
+    <script>
+        
+        function greet(message )
+        {
+            console.log('Hello ',message);
+        }
+        greet = funCheck(greet);
+        greet();
+        greet('hi');
+
+        function funCheck(fn)
+        {
+            return function(...rest)
+            {
+                if(fn.length!= rest.length)
+                {
+                    console.warn('Fun ',fn.name , ' expected ', fn.length, ' but found ',rest.length);
+                }
+                return fn(...rest)
+            }
+        }
+    </script>    
+</html>    

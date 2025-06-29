@@ -1,0 +1,30 @@
+
+<html>
+   
+    <script>
+        const appendHi = (x)=> x+ ' hi';
+        const toUpper = (x) => x.toUpperCase();
+
+        function appenHiAndToUpper(x)
+        {
+            return toUpper(appendHi(x));
+        }
+        console.log('appenHiAndToUpper ',appenHiAndToUpper('hello'));
+
+        function compose(funA,funB)
+        {
+            return function(x)
+            {
+                return funA(funB(x));
+            }
+        }
+        let newFun = compose(toUpper,appendHi);
+        console.log('newFun ',newFun('hello'));
+
+        let incOne = (x)=>x+1;
+        let double = (x)=>x*2;
+
+        newFun = compose( double,incOne);
+        console.log('newFun ',newFun(1));
+    </script>    
+</html>    
