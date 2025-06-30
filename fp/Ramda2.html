@@ -1,0 +1,24 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+       const incCount = R.ifElse(
+            R.has('count'),
+            R.over(R.lensProp('count'), R.inc),
+            R.assoc('count', 1)
+        );
+        console.log('incCount ',incCount({ count: 1 })) //=> { count: 2 }
+        console.log( incCount({}));           //=> { count: 1 }
+        console.log('R.has ',R.has('count')({}));
+        let obj = {
+            name: 'TK',
+            age : 40,
+        }
+        console.log('Obj.age ',obj.age);
+        //obj.age = 50;
+        console.log('prop ' ,R.prop('age')(obj));
+        let newObj = R.assoc('age',50)(obj);
+        console.log('Obj ',obj);
+        console.log('newObj ',newObj);
+    </script>    
+</html>    

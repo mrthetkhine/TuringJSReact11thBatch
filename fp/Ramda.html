@@ -1,0 +1,24 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        console.log('R.add 2',R.add(2));
+        console.log('R.add 2,3',R.add(2,3));
+        console.log('R.add(2)(3) ',R.add(2)(3));
+
+        function add(x,y)
+        {
+            return x+y;
+        }
+        let curriedAdd = R.curry(add);
+        console.log('Curried ',curriedAdd(2)(4));
+        let incOne = x => x+1;
+        let double = x => x*2;
+        let newFun = R.pipe(double,incOne);
+        console.log('NewFun ',newFun(1));
+
+        const equals3 = R.equals(3);
+        console.log('Equals3 ',R.all(equals3)([3, 3, 3, 3]));
+        console.log('Equals3 ',R.all(equals3)([3, 1, 3, 3]));
+    </script>    
+</html>    

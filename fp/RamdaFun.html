@@ -1,0 +1,17 @@
+
+<html>
+   <script src="./funlib.js">
+
+   </script>
+    <script>
+        function has(propertyName,obj)
+        {
+            return propertyName in obj;
+        }
+        let R = {};
+       
+        R.has = curry(has);
+        console.log('CurriedHas ',R.has('name')({name:'John'}));
+        console.log('CurriedHas ',R.has('age')({name:'John'}));
+    </script>    
+</html>    

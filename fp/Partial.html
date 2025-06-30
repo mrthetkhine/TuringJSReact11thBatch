@@ -1,0 +1,25 @@
+
+<html>
+   <script src="./funlib.js">
+
+   </script>
+    <script>
+        function add(x,y)
+        {
+            return x+y;
+        }
+        function curry(fn)
+        {
+            return fn.length == 1 ? fn : function(x)
+            {
+                return curry(fn.bind(null,x));
+            }
+        }
+        let addCur = curry(add);
+
+        console.log('addCur ',addCur(2));
+        console.log('addCur ',addCur(2)(3));
+
+        
+    </script>    
+</html>    

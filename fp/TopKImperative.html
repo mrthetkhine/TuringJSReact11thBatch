@@ -1,0 +1,36 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        let nums = [1,1,1,2,2,3,3,3,1], k = 2;
+        //Output: [1,3]
+        /*
+        find frequency of nums
+        sort nums based on frequency
+        extract top k
+        */
+       let group = {};
+       for(const item of nums)
+       {
+            if(group[item])
+            {
+                group[item]++;
+            }
+            else
+            {
+                group[item] = 1;
+            }
+       
+       }
+       console.log('Group ',group);
+       let arr = Object.entries(group);
+       console.log('Arr ',arr);
+
+       arr.sort( (a,b)=> b[1] -a[1]);
+       console.log('Arr ',arr);
+       
+       let tops = arr.map(a=>a[0]);
+       console.log('Tops ',tops);
+       console.log('Tops ',tops.slice(0,k));
+    </script>    
+</html>    

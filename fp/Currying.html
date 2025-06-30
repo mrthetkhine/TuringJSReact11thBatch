@@ -1,0 +1,29 @@
+
+<html>
+   
+    <script>
+       
+        function pipe(...fns)
+        {
+            return function(x)
+            {
+                return fns.reduce((input,fn)=> fn(input) ,x);
+            }
+        }
+        //let add = (x,y) => x+y;
+        function add(x)
+        {
+            return function(y)
+            {
+                return x+y;
+            }
+        }
+        let addOne = add(1);//partial application
+        console.log('addOne ',addOne);
+        console.log('addOne 2 ',addOne(2));
+        let double = (x) => x * 2;
+
+        let newFun = pipe(double,add(30));
+        console.log('NewFun ',newFun(10));
+    </script>    
+</html>    
