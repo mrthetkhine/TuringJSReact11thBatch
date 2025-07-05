@@ -1,0 +1,35 @@
+<html>
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+<script>
+    
+    function toUpper(str)
+    {
+        return str.toUpperCase();
+    }
+    function appendHi(str)
+    {
+        return str + ' hi';
+    }
+    const MayBe = (value)=>({
+        value,
+        map(fn){
+            return this.isEmpty()?MayBe.of(null): MayBe(fn(value))
+        },
+        isEmpty:()=> value === undefined || value === null,
+        orElse(defaultValue){
+            return this.isEmpty()? MayBe.of(defaultValue): this;
+        }
+    }); 
+
+    MayBe.of = MayBe;
+    let result = MayBe.of(null);
+    console.log('isEmpty ',result.isEmpty());
+
+    let result2 = MayBe.of(null)
+                        .map(toUpper)
+                        .map(appendHi)
+                        .orElse('Empty String');
+    console.log('result2 ',result2.value);
+</script>     
+</html>

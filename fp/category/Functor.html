@@ -1,0 +1,35 @@
+<html>
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+<script>
+    
+    let data = 1;
+    let data2  = data + 1;
+    
+    const identity = (x)=>x;
+    //Container
+    const Container = (value)=>({
+        value,
+        map:(fn)=> Container(fn(value))
+    }); 
+    Container.of = Container;
+    const inc = (x)=> x+1;
+    const double = (x) => x* 2;
+
+    let counter = Container.of(1);
+    let counter2 = counter.map(inc);
+    let result = counter.map(identity);
+   
+    console.log('Counter ',counter.value);
+    console.log('Counter2 ',counter2.value);
+    //law 1
+    console.log('Counter ',counter.value, ' Result ',result.value);
+
+    let newFunc= R.pipe(inc,double);
+
+    let result2 = counter.map(newFunc);
+    let result3 = counter.map(inc)
+                         .map(double);
+    console.log('Counter ',result2.value, ' Result3 ',result3.value);
+</script>     
+</html>

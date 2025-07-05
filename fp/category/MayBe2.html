@@ -1,0 +1,41 @@
+<html>
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+<script>
+    
+    function toUpper(str)
+    {
+        return str.toUpperCase();
+    }
+    function appendHi(str)
+    {
+        return str + ' hi';
+    }
+    const MayBeTwo = isInvalid => value=>({
+        value,
+        map(fn){
+            //console.log('VaidationFun ',validationFn);
+            //console.log('Value ',value, ' !valid ',!validationFn(value));
+            return isInvalid(value)?
+                    MayBeTwo.of(isInvalid)(value): 
+                    MayBeTwo.of(isInvalid)(fn(value))
+        },
+        orElse(defaultValue){
+            return isInvalid(value)? 
+                    MayBeTwo.of(isInvalid)(defaultValue): 
+                    this;
+        }
+    });
+    
+    MayBeTwo.of = MayBeTwo;
+   
+    const isEmpty = (x)=> x === undefined || x === null;
+    const MayBeWithEmpty = MayBeTwo.of(isEmpty);
+    let result2 = MayBeWithEmpty('hello')
+                        .map(toUpper)
+                        .map(appendHi)
+                        .orElse('Empty String');
+                        
+    console.log('result2 ',result2.value);
+</script>     
+</html>

@@ -1,0 +1,44 @@
+<html>
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+<script>
+    
+    function div(a,b)
+    {
+        if(isNaN(a) || isNaN(b))
+        {
+            throw new Error('A or b is invalid')
+        }
+        else
+        {
+            return a/b;
+        }
+    }
+    function div2(a,b)
+    {
+        console.log('Now here');
+        setTimeout(()=>{
+            console.log('started div');
+            if(isNaN(a) || isNaN(b))
+            {
+                throw new Error('A or b is invalid')
+            }
+            else
+            {
+                return a/b;
+            }
+        },1000);
+        
+    }
+    try
+    {
+        let result = div2(0,NaN);
+        console.log('Result ',result);
+    }
+    catch(e)
+    {
+        console.log('Error ',e);
+    }
+    console.log('End');
+</script>     
+</html>

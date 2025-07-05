@@ -1,0 +1,79 @@
+<html>
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+<script>
+    
+    function toUpper(str)
+    {
+        return str.toUpperCase();
+    }
+    function appendHi(str)
+    {
+        return str + ' hi';
+    }
+    const MayBe = (value)=>({
+        value,
+        map(fn){
+            return this.isEmpty()?MayBe.of(null): MayBe(fn(value))
+        },
+        isEmpty:()=> value === undefined || value === null,
+        orElse(defaultValue){
+            return this.isEmpty()? MayBe.of(defaultValue): this;
+        }
+    }); 
+
+    MayBe.of = MayBe;
+    let employess = {
+        1:{
+            name : 'Emp 1',
+            
+        },
+        2:{
+            name : 'Emp 2',
+            supervisor :1
+        },
+        3:{
+            name : 'Emp 3',
+            supervisor:1,
+        },
+        4:{
+            name : 'Emp 4',
+            supervisor:3,
+        }
+    }
+    function getSupervisorName(empId)
+    {
+        let emp = employess[empId];
+        if(emp)
+        {
+            if(emp.supervisor)
+            {
+                let supervisor = employess[emp.supervisor];
+                if(supervisor)
+                {
+                    return supervisor.name;
+                }
+            }
+            
+        }
+    }
+    const log = R.tap(console.log);
+    function getSupervisorNameFP(empId)
+    {
+        return MayBe.of(employess[empId])
+                    //.map(log)
+                    .map(emp=>emp.supervisor)
+                    //.map(log)
+                    .map(supervisorId=>employess[supervisorId])
+                    //.map(log)
+                    .map(supervisor=>supervisor.name);
+    }
+    console.log('Here');
+    console.log('supervisor ',getSupervisorNameFP(4).value);
+    
+    getSupervisorNameFP(14)
+        .map(log)
+        .orElse('Empty')
+        .map(name=>console.log('Name ',name));
+</script>     
+</html>

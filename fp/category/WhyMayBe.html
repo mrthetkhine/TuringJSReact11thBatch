@@ -1,0 +1,27 @@
+<html>
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+<script>
+    
+    function toUpper(str)
+    {
+        return str.toUpperCase();
+    }
+    function appendHi(str)
+    {
+        return str + ' hi';
+    }
+    const Container = (value)=>({
+        value,
+        map:(fn)=> Container(fn(value))
+    }); 
+    Container.of = Container;
+    let newFun = R.pipe(toUpper,appendHi);
+    let result = newFun('hello');
+    console.log('Result ',result);
+
+    let data = undefined;
+    result = newFun(data);
+    console.log('Result ',result);
+</script>     
+</html>
