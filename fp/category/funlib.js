@@ -35,3 +35,45 @@ function reverse(fn)
         return fn(... rest);
     }
 }
+const Left = (value)=>({
+    valueOf(){
+        return value;
+    },
+    map(fn){
+        return Left.of(value);
+    },
+    flatMap(fn){
+        return fn(value);
+    },
+    flat()
+    {
+        return value;
+    },
+    matchWith(context)//{left,right}
+    {
+        //console.log('Left matchWith');
+        return context.left(value);
+    }
+});
+Left.of = Left;
+const Right = (value)=>({
+    valueOf(){
+        return value;
+    },
+    map(fn){
+        return Right.of(fn(value));
+    },
+    flat()
+    {
+        return value;
+    },
+    flatMap(fn){
+        return fn(value);
+    },
+    matchWith(context)//{left,right}
+    {
+        //console.log('Right matchWith');
+        return context.right(value);
+    }
+});
+Right.of = Right;

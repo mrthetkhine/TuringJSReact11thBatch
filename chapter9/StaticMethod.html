@@ -1,0 +1,29 @@
+<html>
+   <body>
+
+   </body>
+    <script>
+        class Utils{
+            static counter = 0;
+            constructor(data)
+            {
+                this.data = data;
+                Utils.counter   ++;
+            }
+
+            static add(a,b){
+                console.log('Data ',this.data);
+                return a+b;
+            }
+        }
+        let result = Utils.add(10,20);
+        console.log('Result ',result);
+
+        let obj = new Utils();
+        result = Utils.add(10,20);
+        console.log('Result ',result);
+
+        let obj2 = new Utils();
+        console.log('Counter ',Utils.counter);
+    </script>     
+</html>

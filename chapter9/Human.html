@@ -1,0 +1,55 @@
+<html>
+   <body>
+
+   </body>
+    <script>
+        /*
+        let obj = {
+            name : "TK",
+            age : 40,
+            display()
+            {
+                console.log('Name ',this.name, ' Age ',this.age);
+            }
+        }
+        let obj2 = {
+            name : "Another",
+            age : 30,
+            display()
+            {
+                console.log('Name ',this.name, ' Age ',this.age);
+            }
+        }
+        obj.display();
+        obj2.display();
+        */ 
+       class Human
+       {
+            name;
+            age;
+
+            constructor(name,age)
+            {
+                this.name = name;
+                this.age = age;
+            }
+            display()
+            {
+                console.log('Name ',this.name, ' Age ',this.age);
+            }
+       }
+       let obj = new Human('TK',40);
+       let obj2 = new Human('ANother',30);
+
+       console.log('Obj ',obj);
+       console.log('Obj2 ',obj2);
+
+       obj.display();
+       obj2.display();
+
+       console.log('obj instanceof Object ',obj instanceof Object );
+       console.log('obj instanceof Human ',obj instanceof Human );
+       console.log('obj instanceof Date ',obj instanceof Date );
+       
+    </script>     
+</html>

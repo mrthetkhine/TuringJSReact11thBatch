@@ -1,0 +1,101 @@
+<html>
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+<script src="./funlib.js"></script>
+<script>
+    let str = "apple=2;orange=13;banana=4"
+     /*
+     function parse(csvStr)
+     {
+        if(csvStr === null || csvStr === undefined || csvStr === "")
+        {
+            throw new Error("Invalid String");
+        }
+        else
+        {
+            let items = str.split(";");
+            let arr =[];
+            for(const item of items)
+            {
+                let [key,val] = item.split("=");
+                arr.push({
+                    key,
+                    val:parseInt(val)
+                });
+            }
+            return arr;
+        }
+     }
+     
+     //console.log('parse ',parse(str));
+     let arr;
+     try
+     {
+        arr = parse(str);
+        console.log('Arr ',arr);
+        let max = maxItem(arr);
+        console.log('max ',max);
+     }
+    catch(e)
+    {
+        console.log('E ',e);
+    }
+    console.log('Done');
+    */
+     function parse(csvStr)
+     {
+        if(csvStr === null || csvStr === undefined || csvStr === "")
+        {
+            return Left.of('Invali string');
+        }
+        else
+        {
+            let items = str.split(";");
+            let arr =[];
+            for(const item of items)
+            {
+                let [key,val] = item.split("=");
+                arr.push({
+                    key,
+                    val:parseInt(val)
+                });
+            }
+            return Right.of(arr);
+        }
+     }
+     function maxItem(arr)
+     {
+        if(arr.length === 0)
+        {
+            return Left.of('Empty Array');
+        }
+        else
+        {
+            let result = arr.reduce( (a,b)=>{
+                    console.log('a ',a, ' b ',b);
+                    return a.val > b.val ? a : b
+                }, {
+                    key : 'dummy',
+                    val :Number.MIN_VALUE
+                });
+            return Right.of(result);
+        }
+         
+     }
+     function print(item)
+     {
+        console.log('Item ',item);
+        console.log('Name ',item.key, ' Value ',item.val );
+        return item;
+     }
+    parse(str)//Either
+        //.map(maxItem)//maxItem =arr=>Either// Right(Right(item))
+        .flatMap(maxItem)
+        //.flat()//Right(item)
+        .map(print)
+        .matchWith({
+                        left:(value)=>console.log(' Error Case ',value),
+                        right:(value)=>console.log('Parse Success Cse ',value)//value=>Right(item)
+                     })   
+</script>     
+</html>

@@ -1,0 +1,51 @@
+<html>
+   <body>
+
+   </body>
+    <script>
+        let stack1 = {
+            items :[],
+            push(item){
+                this.items.push(item);
+            },
+            pop(){
+                return this.items.pop();
+            }
+        }
+        stack1.push(100);
+        stack1.push(200);
+        console.log('Pop ',stack1.pop());
+        console.log('Pop ',stack1.pop());
+
+        class Stack 
+        {
+            items;
+            constructor()
+            {
+                console.log('Stack constructor');
+                this.items = [];
+            }
+            push(item)
+            {
+                this.items.push(item);
+            }
+            pop()
+            {
+                return this.items.pop();
+            }
+        }
+        let s2 = new Stack();
+        s2.push(100);
+        s2.push(200);
+
+        console.log('Pop ',s2.pop());
+        console.log('Pop ',s2.pop());
+
+        let s3 = new Stack();
+        s3.push(300);
+        s3.push(400);
+        console.log('Pop ',s3.pop());
+        console.log('Pop ',s3.pop());
+        
+    </script>     
+</html>
