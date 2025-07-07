@@ -1,0 +1,41 @@
+<html>
+   <body>
+
+   </body>
+    <script>
+        
+        class Human
+       {
+            name;
+            #age;
+
+            constructor(name,age)
+            {
+                this.name = name;
+                this.#age = age;
+            }
+            set age(newValue)
+            {
+                if(newValue>0 && newValue<100)
+                {
+                    this.#age = newValue;
+                }
+            }
+
+            display()
+            {
+                console.log('Name ',this.name, ' Age ',this.#age);
+            }
+       }
+       Human.prototype.speak= function()
+       {
+           console.log(this.name, ' Speaking ');
+       }
+       let h = new Human('TK',40);
+       h.age = 200;
+       h.age = 30;
+       //h.#age = 200;
+       h.speak();
+       h.display();
+    </script>     
+</html>

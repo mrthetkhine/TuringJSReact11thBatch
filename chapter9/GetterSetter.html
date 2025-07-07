@@ -1,0 +1,45 @@
+<html>
+   <body>
+
+   </body>
+    <script>
+        class Circle{
+            constructor(radius) {
+                this.radius = radius;
+            }
+            get area(){
+                return Math.PI * this.radius * this.radius;
+            }
+            
+        }
+        let c1 = new Circle(10);
+        console.log('Area ',c1.area);
+        class Human
+       {
+            name;
+            _age;
+
+            constructor(name,age)
+            {
+                this.name = name;
+                this._age = age;
+            }
+            set age(newValue)
+            {
+                if(newValue>0 && newValue<100)
+                {
+                    this._age = newValue;
+                }
+            }
+
+            display()
+            {
+                console.log('Name ',this.name, ' Age ',this._age);
+            }
+       }
+       let h = new Human('TK',40);
+       h.age = 200;
+       h.age = 30;
+       h.display();
+    </script>     
+</html>
