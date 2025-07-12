@@ -1,0 +1,34 @@
+<html>
+  
+   
+    <script >
+       
+        let pattern = /script$/i; 
+        console.log('VBScript /script$/ ',pattern.test('VBScript'));
+        console.log('JavaScript /script$/ ',pattern.test('JavaScript'));
+        console.log('Java /script$/ ',pattern.test('Java'));
+
+        pattern = /^Java/i; 
+        console.log('Java /^Java/i ',pattern.test('Java'));
+        console.log('JavaScript /^Java/i ',pattern.test('JavaScript'));
+        console.log(`VBScript ${pattern}`,pattern.test('VBScript'));
+
+        pattern = /^./i; 
+        console.log(`VBScript ${pattern}`,pattern.test('VBScript'));
+        console.log(`Java ${pattern}`,pattern.test('Java'));
+
+        pattern = /^1*/i; 
+        console.log(`111 ${pattern}`,pattern.test('1111'));
+        console.log(`2222 ${pattern}`,pattern.test('222'));
+
+        pattern = /^1+2+/i; 
+        console.log(`111222 ${pattern}`,pattern.test('111222'));
+        console.log(`12 ${pattern}`,pattern.test('12'));
+        console.log(`1111 ${pattern}`,pattern.test('1111'));
+
+         pattern = /^1?2?$/i; 
+        console.log(`111222 ${pattern}`,pattern.test('111222'));
+        console.log(`12 ${pattern}`,pattern.test('12'));
+        console.log(`1 ${pattern}`,pattern.test('1'));
+    </script>  
+</html>

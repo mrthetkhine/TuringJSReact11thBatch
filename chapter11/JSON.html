@@ -1,0 +1,29 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script>
+        let json = {
+            name :"Anyone",
+            date : new Date(),
+            toJSON(){
+                return {
+                    name: this.name,
+                    date : this.date.getTime()
+                }
+            }
+        }
+        let str = JSON.stringify(json);
+        console.log('str ',str);
+
+        let obj = JSON.parse(str,function (key,value){
+            if(key == 'date')
+            {
+                return new Date(value);
+            }
+            else {
+                return value;
+            }
+        });
+        //obj.date = new Date(obj.date);
+        console.log('obj ',obj);
+    </script>
+</html>

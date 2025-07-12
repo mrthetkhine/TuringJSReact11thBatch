@@ -1,0 +1,35 @@
+<html>
+  
+   
+    <script >
+       
+        let pattern;
+        pattern = /(Java|VB)Script/i; 
+        console.log(`JavaScript ${pattern}`,pattern.test('JavaScript'));
+        console.log(`VBScript ${pattern}`,pattern.test('VBScript'));
+
+        pattern = /(com|org|net)$/i; 
+        console.log(`hello.com ${pattern}`,pattern.test('hello.com'));
+        console.log(`hello.org ${pattern}`,pattern.test('hello.org'));
+        console.log(`hello.net ${pattern}`,pattern.test('hello.net'));
+        console.log(`hello.io ${pattern}`,pattern.test('hello.io'));
+
+        //pattern = /^(1|2|3|4|5|6|7|8|9|0)+$/i; 
+        pattern = /^[0123456789]+$/i; 
+        pattern = /^[0-9]+$/i; 
+        console.log(`012 ${pattern}`,pattern.test('012'));
+        console.log(`hello ${pattern}`,pattern.test('hello'));
+
+        pattern = /^\d+$/i; 
+        console.log(`012 ${pattern}`,pattern.test('012'));
+        console.log(`hello ${pattern}`,pattern.test('hello'));
+
+        //identifier
+        pattern = /^([a-zA-Z]|_|$)(\d|[a-zA-Z]|_|\$)*$/; 
+        console.log(`012 ${pattern}`,pattern.test('012'));
+        console.log(`hello ${pattern}`,pattern.test('hello'));
+        console.log(`_ ${pattern}`,pattern.test('_'));
+        console.log(`_122 ${pattern}`,pattern.test('_122'));
+        console.log(`hello112 ${pattern}`,pattern.test('hello112'));
+    </script>  
+</html>

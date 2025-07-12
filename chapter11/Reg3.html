@@ -1,0 +1,48 @@
+<html>
+  
+   
+    <script >
+       
+        let pattern;
+        pattern = /[^123]+/i; 
+        console.log(`12 ${pattern}`,pattern.test('12'));
+        console.log(`456 ${pattern}`,pattern.test('456'));
+        console.log(`hello ${pattern}`,pattern.test('hello'));
+
+        pattern = /\w+/i; 
+        console.log(`12 ${pattern}`,pattern.test('12'));
+        console.log(`456 ${pattern}`,pattern.test('456'));
+        console.log(`hello ${pattern}`,pattern.test('hello'));
+        console.log(`$ ${pattern}`,pattern.test('$'));
+
+        pattern = /\W+/i; 
+        console.log(`12 ${pattern}`,pattern.test('12'));
+        console.log(`456 ${pattern}`,pattern.test('456'));
+        console.log(`hello ${pattern}`,pattern.test('hello'));
+        console.log(`$ ${pattern}`,pattern.test('$'));
+
+        pattern = /\d{2,5}/i; 
+        console.log(`12 ${pattern}`,pattern.test('12'));
+        console.log(`456 ${pattern}`,pattern.test('456'));
+        console.log(`4 ${pattern}`,pattern.test('4'));
+        console.log(`123456 ${pattern}`,pattern.test('123456'));
+        console.log(`hello ${pattern}`,pattern.test('hello'));
+        console.log(`$ ${pattern}`,pattern.test('$'));
+
+        pattern = /\d{2,}/i; 
+        console.log(`12 ${pattern}`,pattern.test('12'));
+        console.log(`456 ${pattern}`,pattern.test('456'));
+        console.log(`4 ${pattern}`,pattern.test('4'));
+        console.log(`123456 ${pattern}`,pattern.test('123456'));
+        console.log(`hello ${pattern}`,pattern.test('hello'));
+        console.log(`$ ${pattern}`,pattern.test('$'));
+
+        pattern = /\d{5}/i; 
+        console.log(`12 ${pattern}`,pattern.test('12'));
+        console.log(`456 ${pattern}`,pattern.test('456'));
+        console.log(`4 ${pattern}`,pattern.test('4'));
+        console.log(`12345 ${pattern}`,pattern.test('12345'));
+        console.log(`hello 12345 ${pattern}`,pattern.test('hello 12345'));
+        console.log(`$ ${pattern}`,pattern.test('$'));
+    </script>  
+</html>

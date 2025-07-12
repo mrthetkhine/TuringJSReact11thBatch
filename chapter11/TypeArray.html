@@ -1,0 +1,20 @@
+<html>
+   <body>
+        <button id="btnAllocate" type="button">Allocate</button>
+       
+   </body>
+   
+    <script >
+        let arr ;
+        document.getElementById('btnAllocate')
+                .addEventListener('click',function()
+            {
+                arr = new Array(100000);
+                //arr = new Uint8Array(100000);
+                console.log('Allocated');
+
+                arr[0] = 10;
+                console.log('Arr[0] ',arr[0]);
+            });
+    </script>  
+</html>

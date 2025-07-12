@@ -1,0 +1,29 @@
+<html>
+
+    <script>
+        console.log('Hello World');
+        console.debug('Debug World');
+        console.error('Error World');
+        console.warn('Warn World');
+        console.info('Info World');
+
+        function toUpper(str)
+        {
+            console.assert(str.length > 0,"Str length not ok");
+            return str.toUpperCase();
+            
+        }
+        console.log('toupper ',toUpper('hello'  ));
+        console.log('toupper ',toUpper(''  ));
+
+        let data = [{
+            name: "Apple",
+            price:100
+        },
+        {
+            name: "Banana",
+            price:200
+        }];
+        console.table(data);
+    </script>
+</html>

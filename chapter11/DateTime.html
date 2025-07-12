@@ -1,0 +1,31 @@
+<html>
+  
+   
+    <script >
+       
+        let date = new Date();
+        console.log('Date ',date);
+
+        date =new Date(2025,6,12,17);
+        console.log('Date ',date);
+
+        let ms = date.getTime();
+        console.log('ms ',ms);
+
+        date =new Date(ms);
+        console.log('Date ',date);
+
+        let json = {
+            name :"Anyone",
+            date : new Date(),
+            toJSON(){
+                return {
+                    name: this.name,
+                    date : this.date.getTime()
+                }
+            }
+        }
+        let str = JSON.stringify(json);
+        console.log('str ',str);
+    </script>  
+</html>
