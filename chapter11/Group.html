@@ -1,0 +1,21 @@
+<html>
+
+    <script>
+        console.time('timer1');
+
+        console.group('Level 1');
+        console.log('Level 1 log');
+        console.group('Level 2');
+        console.log('Level 2 log');
+        console.groupEnd();
+        console.log('Level 1 log');
+        console.groupEnd();
+
+        console.timeLog('timer1','Timer 1 log');
+        console.timeEnd('timer1');
+        let a = 10;
+        let str = 'Hello';
+
+        console.log('A ',a, ' str ',str);
+    </script>
+</html>

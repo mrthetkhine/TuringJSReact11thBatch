@@ -1,0 +1,41 @@
+<html>
+    <body>
+       <button type="button" onclick="process()">Process</button>
+       <button type="button" id="btnHi">Hi</button>
+    </body>
+    <script>
+        document.getElementById('btnHi')
+                .addEventListener('click',function(){
+                    console.log('hi');
+                });
+        function delay(ms) {
+            let start = new Date().getTime();
+            let end = start;
+            while(end < start + ms) {
+                end = new Date().getTime();
+            }
+        }
+        function fetchTodo()
+        {
+            fetch('https://jsonplaceholder.typicode.com/todos/1')
+                .then(response => response.json())
+                .then(json => console.log(json));
+        }
+        function process()
+        {
+            setTimeout(function(){
+                console.timeLog('timer','first');
+            },0);
+            setTimeout(function(){
+                console.timeLog('timer','Second');
+            },2000);
+            console.time('timer');
+            console.timeLog('timer','Hello');
+            fetchTodo();
+            delay(6000);
+        
+            console.timeLog('timer','World');
+        }
+        
+    </script>
+</html>

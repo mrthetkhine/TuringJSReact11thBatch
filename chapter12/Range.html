@@ -1,0 +1,47 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        
+        function range(start,end)
+        {
+            return {
+                [Symbol.iterator]() {
+                    let value = start;
+                    return {
+                        next() {
+                            if(value < end)
+                            {
+                                return {
+                                    done: false,
+                                    value : value++,
+                                }
+                            }
+                            else
+                            {
+                                return {
+                                    done: true,
+                                    value : undefined,
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        let iterator = range(1,4)[Symbol.iterator]();//[]
+        console.log('Iterator ',iterator);
+        console.log('Next ',iterator.next());
+        console.log('Next ',iterator.next());
+        console.log('Next ',iterator.next());
+        console.log('Next ',iterator.next());
+
+        for(const item of range(1,4))
+        {
+            console.log('Item is ',item);
+        }
+        let arr = [... range(1,4)];
+        console.log('Array ',arr);
+    </script>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <button type="button" id="btnClear"> Clear </button>
+        <button type="button" id="btnClearThree"> Clear 3 second</button>
+    </body>
+    <script>
+        let timer ;
+        document.getElementById('btnClear')
+                .addEventListener('click',()=>{
+                    clearInterval(timer);
+                });
+        document.getElementById('btnClearThree')
+                .addEventListener('click',()=>{
+                    clearTimeout(timer2);
+                });        
+        function invokeLater(fn, ms)
+        {
+            return setTimeout(fn, ms);
+        }
+        let timer2= invokeLater(function()
+        {
+            console.log('Hello World after 3 seconds');
+        },3000);
+        invokeLater(function()
+        {
+            console.log('HI after 1 seconds');
+        },1000);
+        console.log('End');
+
+        timer = setInterval(()=>{
+            console.log('Now ',new Date().toLocaleTimeString());
+        },1000);
+    </script>
+</html>

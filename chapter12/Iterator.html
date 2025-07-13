@@ -1,0 +1,32 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        
+        let arr = [1,2,3];
+        for(const item of arr)
+        {
+            console.log(item);
+        }
+        let iterator = arr[Symbol.iterator]();
+        console.log('Iterator ',iterator);
+        console.log('Next ',iterator.next());
+        console.log('Next ',iterator.next());
+        console.log('Next ',iterator.next());
+        console.log('Next ',iterator.next());
+        /*
+        for(let result = iterator.next(); !result.done; result = iterator.next()) {
+            console.log(result.value) // result.value == 99 
+        }*/
+        /*
+        let set = new Set([1,2,3,1,1,2]);
+        iterator = set[Symbol.iterator]();
+        
+        console.log('set Iterator ',iterator);
+        for(const item of set)
+        {
+            console.log('Set item ',item);
+        }*/
+    </script>
+</html>
