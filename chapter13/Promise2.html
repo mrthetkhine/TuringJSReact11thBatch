@@ -1,0 +1,46 @@
+<html>
+    <script>
+        //resolve->success
+        /*
+        Promise.resolve(10)
+            .then(result=>result*2, err=> {
+                throw new Error('Error')
+            })
+            .then(result=>console.log('Result ',result), err=>console.log('Error ',err));
+        */ 
+       /*
+        Promise.reject('Bad case')
+            .then(result=>result*2, err=> {
+                console.log('Base case');
+                throw new Error('Error')
+            })
+            .then(result=>console.log('Result ',result), 
+                 err=>console.log('Error ',err));
+        */ 
+       /*
+        Promise.resolve(10)
+            .then(result=>{
+                console.log('Success case');
+                return Promise.reject('Bad case');
+            }, err=> {
+                throw new Error('Error')
+            })
+            .then(result=>console.log('Result ',result), err=>console.log('Error ',err));        
+        */   
+       Promise.reject(10)
+            .then(result=>{
+                return new Error(result);
+            }, err=> {
+               //return 100;
+               throw new Error('Something bad')
+            })
+            .catch(err=>{
+                console.log('Error catch',err);
+                return 500;
+            })
+            .then(result=>console.log('Result ',result), err=>console.log('Error ',err)) 
+            .finally(()=>{
+                console.log('Finally');
+            })
+    </script>
+</html>

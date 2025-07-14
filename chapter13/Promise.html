@@ -1,0 +1,46 @@
+<html>
+    <script>
+        function div(a,b)
+        {
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log('Computed Div');
+                    if(isNaN(a) || isNaN(b) )
+                    {
+                        reject('A or b is NaN');    
+                    }
+                    else
+                    {
+                        resolve( a/b);
+                    }
+                    
+                },3000);
+            });
+            
+        }
+        function mult(a,b)
+        {
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log('Computed Mult');
+                    if(isNaN(a) || isNaN(b) )
+                    {
+                        reject('A or b is NaN');    
+                    }
+                    else
+                    {
+                        resolve( a*b);
+                    }
+                    
+                },3000);
+            });
+            
+        }
+        console.log('start');
+        div(10,2)
+            .then(result=>mult(result,3))
+            .then(result2=>console.log('Result ',result2));
+           
+        console.log('End');    
+    </script>
+</html>

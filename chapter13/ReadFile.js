@@ -1,11 +1,12 @@
 const fs = require('node:fs');
 //console.log(fs);
-console.log('Read start');
-fs.readFile('./helloworld.txt','utf-8',(err,data)=>{
+console.time('timer');
+console.timeLog('timer','Read start');
+fs.readFile('./hello.txt','utf-8',(err,data)=>{
     if(!err)
     {
-        console.log('Data ',data);
+        console.timeLog('timer','Data ',data.toString().length);
     }
    
 });
-console.log('End');
+console.timeLog('timer','End');

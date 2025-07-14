@@ -1,0 +1,34 @@
+<html>
+    <script>
+        function div(a,b,cb)
+        {
+            setTimeout(()=>{
+                console.log('Computed Div');
+                cb( a/b);
+            },3000);
+        }
+        function mult(a,b,cb)
+        {
+            setTimeout(()=>{
+                console.log('Computed Mult');
+                cb( a*b);
+            },3000);
+        }
+        //div-> mult-> console
+        //div(10,2)->result , mul(result,3))
+        div(10,2,(result)=>{
+            console.log('Div Done result ',result);
+            mult(result,3,(result2)=>{
+                console.log('Multiplication done ',result2);
+            })
+        })
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response => response.json())
+            .then(json => console.log(json));
+        /*
+            div(a,b)
+                .then(result=>mult(result*3))
+                .then(result2=>console.log(result2));
+        */
+    </script>
+</html>

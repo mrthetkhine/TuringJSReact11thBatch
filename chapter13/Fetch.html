@@ -1,0 +1,27 @@
+<html>
+    <script>
+        function fetchUrl(url,callback)
+        {
+            let request = new XMLHttpRequest();
+            request.open("GET",url);
+            console.log('Network request send');
+            request.send();
+
+            request.onload = function(){
+                console.log('Network response received');
+                if(request.status == 200)
+                {
+                    callback(request.responseText);
+                }
+                
+            }
+            request.onerror = function(){
+                console.log('Network request failed');
+            }
+        }
+        fetchUrl('https://jsonplaceholder.typicode.com/todos/1',(data)=>{
+            console.log('Data ',data);
+        });
+        console.log('Other code');
+    </script>
+</html>

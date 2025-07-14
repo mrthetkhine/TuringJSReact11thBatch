@@ -1,0 +1,18 @@
+<html>
+    <script>
+        function div(a,b,cb)
+        {
+            setTimeout(()=>{
+                console.log('Computed');
+                cb( a/b);
+            },3000);
+        }
+        function callback(data)
+        {
+            console.log('Callback from result ',data);
+        }
+        console.log('before div');
+        let result = div(10,2,callback);
+        console.log('After result ',result);
+    </script>
+</html>

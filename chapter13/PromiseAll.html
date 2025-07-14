@@ -1,0 +1,30 @@
+<html>
+    <script>
+        console.time('timer');
+        /*
+        fetch('https://jsonplaceholder.typicode.com/todos')
+            .then(response => response.json())
+            .then(json => console.log(json)); 
+        */     
+        /*
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response => response.json())
+            .then(todo1 => {
+                    fetch('https://jsonplaceholder.typicode.com/todos/2')
+                                .then(response => response.json())
+                                .then(todo2 => console.timeLog('timer','todo1 ',todo1,' todo2 ',todo2));
+            });
+        */
+       
+        let urls= ['https://jsonplaceholder.typicode.com/todos/1',
+                    'https://jsonplaceholder.typicode1.com/todos/2'];
+        let promises = urls.map(url=>fetch(url)
+                                    .then(response => response.json()));
+        /*
+        Promise.all(promises)
+                .then(data=>console.timeLog('timer','All done ',data));
+        */
+        Promise.allSettled(promises)
+                .then(data=>console.timeLog('timer','All done ',data));
+    </script>
+</html>
