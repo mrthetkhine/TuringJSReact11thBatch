@@ -1,0 +1,40 @@
+<html>
+    <script>
+        /*
+        any object
+            property string-> empty
+        */
+       let obj ={
+            name :"TK"
+       };
+       console.log('Object ',obj);
+       let descriptor = Object.getOwnPropertyDescriptor(obj,'name');
+       console.log('Descriptor ',descriptor);
+
+       const random = {
+            get octet() { return Math.floor(Math.random()*256); },
+       };
+       console.log('Descriptor ',Object.getOwnPropertyDescriptor(random,'octet'));
+
+       Object.defineProperty(obj,'age',{
+            _age : 40,
+            enumerable:true,
+            configurable:true,
+            get(){
+                return this._age;
+            },
+            set(value){
+                this._age = value;
+            }
+       });
+       console.log('Obj.age ',obj.age);
+       obj.age = 100;
+       console.log('Obj.age ',obj.age);
+       delete obj.age;
+       console.log('Obj ',obj);
+       for(let key in obj)
+       {
+        console.log('Key ',key);
+       }
+    </script>
+</html>

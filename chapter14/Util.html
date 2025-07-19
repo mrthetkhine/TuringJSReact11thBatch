@@ -1,0 +1,30 @@
+<html>
+    <body>
+      
+    </body>
+    
+    <script>
+        
+        let obj = {
+            name : "TK",
+            age : 31
+        };
+        console.log('Obj ',Object.isExtensible(obj));
+        Object.preventExtensions(obj);
+        obj.address = "YGN";
+        console.log('Obj ',Object.isExtensible(obj));
+        console.log('Obj ',obj);
+
+        Object.seal(obj);
+        delete obj.age;
+        console.log('Obj ',obj);
+        console.log('Obj ',Object.isSealed(obj));
+
+        Object.freeze(obj)
+        obj.age ++;
+        console.log('Obj ',obj);
+        console.log('isFrozen ',  Object.isFrozen(obj));
+
+        console.log('Parent ',Object.getPrototypeOf(obj));
+    </script>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <script>
+        /*
+        any object
+            property string-> empty
+        */
+       let obj ={
+            name :"TK"
+       };
+       let another = {
+            city: "YGN",
+            address: "",
+            value : 100,
+       }
+       function validate(obj)
+       {
+           for(let key in obj)
+           {
+               if(typeof obj[key] === "string" && obj[key] === "")
+               {
+                  console.warn('Key ',key,' is empty');
+               }
+           }
+       }
+       validate(another)
+    </script>
+</html>

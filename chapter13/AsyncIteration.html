@@ -1,0 +1,18 @@
+<html>
+    <script>
+        async function getTodos()
+        {
+            let urls = [
+                'https://jsonplaceholder.typicode.com/todos/1',
+                'https://jsonplaceholder.typicode.com/todos/2'
+            ];
+            let promises = urls.map(url=>fetch(url).then(response=>response.json()));
+            for await(const data of promises)
+            {
+                //let data = await p;
+                console.log('Data ',data);
+            }
+        }
+        getTodos();
+    </script>
+</html>

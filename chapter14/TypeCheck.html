@@ -1,0 +1,36 @@
+<html>
+    <script>
+        
+        let obj = {
+            name : "TK"
+        };
+        //obj.name = 30;
+        console.log('Object ',obj);
+        
+        function typeCheck(obj)
+        {
+            let proxy = {};
+            for(let key in obj)
+            {
+                Object.defineProperty(proxy,key,{
+                    get : function()
+                    {
+                        return obj[key];
+                    },
+                    set : function(value)
+                    {
+                        if(typeof value !== typeof obj[key])
+                        {
+                            console.warn('Prop ',key,' type mismatch');
+                        }
+                        obj[key] = value;
+                    }
+                });
+            }
+            return proxy;
+        }
+        let proxy = typeCheck(obj);
+        proxy.name = 30;
+        console.log('Object ',proxy.name);
+    </script>
+</html>

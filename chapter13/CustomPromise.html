@@ -1,0 +1,108 @@
+<html>
+    <script>
+        class CustomPromise
+        {
+            callbacks=[];
+            constructor(executor)//executor =(resolve,reject)=>{}
+            {
+                //console.log('Executor called ',executor);
+                //fun = this.resolve;
+                executor(this.resolve.bind(this),this.reject.bind(this));
+            }
+            resolve(data)
+            {
+                console.log('Sucess callback ',data);
+                let result = data;
+                let success = true;
+                for(let i=0;i<this.callbacks.length;i++ )
+                {
+                    try{
+                        if(success)
+                        {
+                            result = this.callbacks[i].sucess(result);
+                        }
+                        else
+                        {
+                            result = this.callbacks[i].error(result);
+                        }
+                        success = true;
+                    }
+                    catch(e)
+                    {
+                        success = false;//success
+                        result = e;
+                    }
+                }
+            }
+            reject(data)
+            {
+                console.log('Sucess callback ',data);
+                let result = data;
+                let success = false;
+                for(let i=0;i<this.callbacks.length;i++ )
+                {
+                    try{
+                        if(success)
+                        {
+                            result = this.callbacks[i].sucess(result);
+                        }
+                        else
+                        {
+                            result = this.callbacks[i].error(result);
+                        }
+                        success = true;
+                    }
+                    catch(e)
+                    {
+                        success = false;//success
+                        result = e;
+                    }
+                }
+            }
+            then(sucess,error)
+            {
+               this.callbacks.push({
+                   sucess:sucess,
+                   error:error
+               });
+               //console.log('Callback ',this.callbacks);
+               return this;
+            }
+        }
+        function div(a,b)
+        {
+            return new CustomPromise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log('Computed Div');
+                    if(isNaN(a) || isNaN(b) )
+                    {
+                        reject('A or b is NaN');    
+                    }
+                    else
+                    {
+                        resolve( a/b);
+                    }
+                    
+                },3000);
+            })
+        }
+        div(10,NaN)
+            .then(x=>{
+                throw new Error('Error is x ')
+            },error=>{
+                console.log('Err => ',error);
+                return 300;
+            })
+            .then(x=>console.log('Result ',x),error=>{
+                console.log('Err => ',error);
+                return 100;
+            })
+            .then(x=>console.log('Final x is ',x));
+        console.log('end');    
+        let promise = new Promise((resolve,reject)=>{
+            console.log('Hello');
+            resolve(10);
+        })
+        promise.then(x=>console.log('Hello result ',x));
+    </script>
+</html>

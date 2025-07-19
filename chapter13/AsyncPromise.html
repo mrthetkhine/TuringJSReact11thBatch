@@ -1,0 +1,29 @@
+<html>
+    <script>
+        async function getData()
+        {
+            return 100;
+        }
+        getData().then(data=>console.log('Data ',data));
+
+        function getPromise()
+        {
+            return new Promise((resolve,reject)=>{
+                reject(100);
+            });
+        }
+        async function getPromiseData()
+        {
+            try
+            {
+                let data = await getPromise();
+                console.log('Data =>',data);
+            }
+            catch(e)
+            {
+                console.log('Error ',e);
+            }
+        }
+        getPromiseData();
+    </script>
+</html>

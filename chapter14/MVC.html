@@ -1,0 +1,48 @@
+<html>
+    <body>
+        <div>
+            Name <span id="txtName"></span>
+            <br/>
+            Age <span id="txtAge"></span>
+        </div>
+    </body>
+    
+    <script>
+        
+        let obj = {
+            name : "TK",
+            age : 31
+        };
+        //obj.name = 30;
+        function updateView(obj)
+        {
+            document.getElementById('txtName').innerText = obj.name;
+            document.getElementById('txtAge').innerText = obj.age;
+
+            console.log('View Update');
+        }
+        updateView(obj);
+        function mvc(obj,viewUpdateFn)
+        {
+            let proxy = {};
+            for(let key in obj)
+            {
+                Object.defineProperty(proxy,key,{
+                    get : function()
+                    {
+                        return obj[key];
+                    },
+                    set : function(value)
+                    {
+                        obj[key] = value;
+                        viewUpdateFn(obj);
+                    }
+                });
+            }
+            return proxy;
+        }
+        let proxy = mvc(obj,updateView);
+        proxy.name = "Update";
+        proxy.age = 100;
+    </script>
+</html>
