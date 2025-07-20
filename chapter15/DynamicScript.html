@@ -1,0 +1,44 @@
+<html>
+    <body>
+        <img id ='imgApple' src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/health-benefits-of-apples-1200x628-facebook-1200x628.jpg"
+            width="200" height="200"/>
+       <div id="container">
+        </div>
+        <button type="button" id="btnAdd">
+            Add
+        </button>
+    </body>    
+
+    <script>
+        console.log('Apple ',document.getElementById('imgApple'));
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                let script = document.createElement('script');
+                script.src = src;
+                document.head.appendChild(script);
+
+                script.onload = resolve;
+                script.onerror = reject;
+            })
+            
+        }
+        document.getElementById('btnAdd')
+                .addEventListener('click', () => {
+                    if(!window.api)
+                    {
+                        loadScript('./hello.js')
+                            .then(()=>api());
+                    }
+                    nonApi();
+                    //loadScript('./another.js');
+                    //api();
+                });
+        window.addEventListener('DOMContentLoaded',()=>{
+            console.log('DOM Loaded');
+        });
+        window.onerror = function(e)
+        {
+            console.log('Error ',e);
+        }
+    </script>    
+</html>

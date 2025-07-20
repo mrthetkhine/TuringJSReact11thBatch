@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <h1 id="lblHello">Hello</h1>
+        <button type="button" id="btnUpdate">
+            Update
+        </button>
+    </body>    
+    <script defer src="./Defer.js"></script>
+    <script async src="./Async.js"></script>
+    <script src="./hello.js"></script>
+    <script src="./another.js"></script>
+   
+   
+    <script>
+        api();
+        document.getElementById('btnUpdate')
+                .addEventListener('click', () => {
+                    document.getElementById('lblHello').innerText = 'Hello World';
+                });
+    </script>    
+</html>

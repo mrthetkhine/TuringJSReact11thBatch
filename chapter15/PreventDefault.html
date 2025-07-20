@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <button type="button" id="btnClick" onclick="console.log('Clicked');">
+            Click 
+        </button>   
+         <button type="button" id="btnRemove" >
+            Remove 
+        </button>   
+       <div id="parent">
+            Parent 
+            <div id="child">
+                Child
+            </div>
+       </div>
+    </body>    
+
+    <script>
+        document.addEventListener('contextmenu',(e)=>{
+            console.log('Context ',e);
+            e.preventDefault();
+        })
+    </script>    
+</html>

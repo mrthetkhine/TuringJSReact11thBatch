@@ -1,0 +1,58 @@
+<html>
+    <body>
+        <button type="button" id="btnClick" onclick="console.log('Clicked');">
+            Click 
+        </button>   
+         <button type="button" id="btnRemove" >
+            Remove 
+        </button>   
+       <div id="parent">
+            Parent 
+            <div id="child">
+                Child
+            </div>
+       </div>
+    </body>    
+
+    <script>
+        window.onload = function(){
+            console.log('Loaded');
+        }
+        window.onload = function(){
+            console.log('Loaded2');
+        }
+        window.addEventListener('keyup',(e)=>{
+            console.log('Key ',e);
+        })
+
+        let handler1 = (e) => {
+                    //e.stopPropagation();
+                    e.stopImmediatePropagation();
+                    console.log('Parent Clicked target ',e.target, ' Current target ',e.currentTarget);
+                    console.log('Parent Clicked  Own event ',e.target == e.currentTarget);
+                }      
+        document.getElementById('parent')
+                .addEventListener('click', handler1);
+        document.getElementById('parent')
+                .addEventListener('click', (e) => {
+                    console.log('Parent Clicked 2 target ',e.target, ' Current target ',e.currentTarget);
+                    console.log('Parent Clicked 2 Own event ',e.target == e.currentTarget);
+                });  
+        document.getElementById('btnRemove')
+                .addEventListener('click', () => {
+                    document.getElementById('parent')
+                        .removeEventListener('click', handler1);
+                })              
+        
+        document.getElementById('child')
+                .addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    console.log('Child Clicked target ',e.target, ' Current target ',e.currentTarget);
+                    console.log('Child Clicked  Own event ',e.target == e.currentTarget);
+                });
+        document.addEventListener('click',(e)=>{
+            console.log('Document Clicked target ',e.target, ' Current target ',e.currentTarget);
+            console.log('Document Clicked  Own event ',e.target == e.currentTarget);
+        })
+    </script>    
+</html>

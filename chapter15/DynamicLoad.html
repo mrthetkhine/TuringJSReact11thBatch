@@ -1,0 +1,18 @@
+<html>
+    <body>
+       <div id="container">
+        </div>
+        <button type="button" id="btnAdd">
+            Add
+        </button>
+    </body>    
+
+    <script>
+        document.getElementById('btnAdd')
+                .addEventListener('click', () => {
+                    let h1 = document.createElement('h1');
+                    h1.innerText = 'Hello World';
+                    document.getElementById('container').appendChild(h1);
+                });
+    </script>    
+</html>
