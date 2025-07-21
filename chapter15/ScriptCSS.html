@@ -1,0 +1,32 @@
+<html>
+    <style>
+        .myClass
+        {
+            background-color: blue;
+        }
+    </style>
+    <body>
+        <button type="button" id="btnAdd">
+            Add
+        </button>
+        <div id="container">
+            Nothing
+        </div>
+    </body>    
+
+    <script>
+        let container= document.getElementById('container');
+        container.style.backgroundColor = 'red';
+        container.style.color = 'blue';
+        document.getElementById('btnAdd')
+                .addEventListener('click', (e) => {
+                    console.log('Add');
+                
+                    
+                });   
+               
+
+
+        
+    </script>    
+</html>

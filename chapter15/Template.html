@@ -1,0 +1,53 @@
+<html>
+    <style>
+        .myClass
+        {
+            background-color: blue;
+        }
+    </style>
+    <body>
+        <button type="button" id="btnAdd">
+            Add
+        </button>
+        <template id="productrow">
+            <tr>
+                <td class="record">Dummy</td>
+                <td>Dummy</td>
+            </tr>
+        </template>
+       <table>
+            <tehad>
+                <th>ID</th>
+                <th>Name</th>
+            </tehad>
+            <tbody id="container">
+                <tr>
+                    <td>1</td>
+                    <td>One</td>
+                </tr>    
+            </tbody>
+       </table>
+
+    </body>    
+
+    <script>
+        let container= document.getElementById('container');
+        document.getElementById('btnAdd')
+                .addEventListener('click', (e) => {
+                    const template = document.querySelector("#productrow");
+                    const node = template.cloneNode(true);
+                    const row = node.content;
+                    console.log('Node ',row);
+                    
+                    container.appendChild(row);
+                    
+                    console.log('query seletor ',row.querySelector('td'));
+                
+                    
+                });   
+               
+
+
+        
+    </script>    
+</html>

@@ -1,0 +1,29 @@
+<html>
+    <body>
+       
+       
+       <table>
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+            </thead>
+            <tbody id="tblContainer">
+                <tr>
+                    <td>1</td>
+                    <td>One</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Two</td>
+                </tr>
+            </tbody>
+       </table>
+    </body>    
+
+    <script>
+        document.getElementById('tblContainer')
+                .addEventListener('click', (e) => {
+                    console.log('Click ',e.target.closest('tr'));
+                });   
+    </script>    
+</html>

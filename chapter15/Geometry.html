@@ -1,0 +1,59 @@
+<html>
+    <style>
+        .myClass
+        {
+            background-color: blue;
+        }
+        #container
+        {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        #container2
+        {
+            width: 200px;
+            height: 5200px;
+           
+        }
+    </style>
+    <body>
+        <button type="button" id="btnAdd">
+            Add
+        </button>
+        <div id="container">
+            Nothing
+        </div>
+        <div>
+            Another
+        </div>
+         <div id="container2">
+            Container 2
+        </div>
+        <a href="#container">
+            End
+        </a>
+        <button type="button" id="btnScroll">
+            Scroll
+        </button>
+    </body>    
+
+    <script>
+        let container= document.getElementById('container');
+        console.log('Rect ',container.getBoundingClientRect());
+               
+        document.addEventListener('click',(e)=>{
+            //console.log('Click ',document.elementFromPoint(e.clientX,e.clientY));
+        })
+
+        document.getElementById('btnScroll')
+                .addEventListener('click', () => {
+                    /*
+                    document.getElementById('container2')
+                        .scrollIntoView();
+                    */
+                   //window.scrollTo(0,0)
+                   setInterval(() => { scrollBy(0,-150)}, 50);
+                })
+    </script>    
+</html>

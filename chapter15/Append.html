@@ -1,0 +1,66 @@
+<html>
+    <body>
+       <button type="button" id="btnAdd">
+            Add
+       </button>
+       <div id="container">
+        container
+            <div>
+                Child 1
+            </div>
+            <div>
+                Child 2
+            </div>
+            <div>
+                Child 3
+            </div>
+       </div>
+       <form>
+            <input name="txtName"/>
+       </form>
+       <div class="container">
+                One
+        </div>
+       <ol id="lblList">
+            <li>Item</li>
+       </li> 
+       <a href="http://www.google.com" id="lnkGoogle">Google</a>
+    </body>    
+
+    <script>
+        document.getElementById('btnAdd')
+                .addEventListener('click', (e) => {
+                    /*
+                    let ol = document.createElement('li');
+                    ol.textContent = "Item" ;
+                    document.getElementById('lblList').appendChild(ol);
+                    */ 
+                   process();
+                });   
+        console.log('querySelectorAll ',document.querySelectorAll('div'));
+        console.log('getElementsByTagName ',document.getElementsByTagName('div'));
+        console.log('getElementsByClassName container ',document.getElementsByClassName('container'));
+        console.log('getElementsByName ',document.getElementsByName('txtName'));
+
+        function process()
+        {
+            let divs = document.getElementsByTagName('div');
+            for(let i=0, length = divs.length;i< length;i++)
+            {
+                let div = document.createElement('div');
+                div.textContent = 'Data '+i
+                document.body.appendChild(div);
+                console.log('Append '+i);
+            }
+        }
+        let container = document.getElementById('container');
+        console.log('Parent ',container.parentNode);
+        console.log('children ',container.children);
+        console.log('firstChild ',container.firstChild);
+        console.log('lastChild ',container.lastChild);
+
+        let lnkGoogle = document.getElementById('lnkGoogle');
+        console.log('getAttribute ',lnkGoogle.getAttribute('href'));
+        lnkGoogle.setAttribute('href','http://www.bing.com');
+    </script>    
+</html>

@@ -1,0 +1,60 @@
+<html>
+    <body>
+       
+       <div id="parent" class="container">
+            Parent 
+            <div id="child">
+                Child
+            </div>
+            <p>
+                <span>
+                    Span under div
+                </span>
+            </p>
+            <span>
+                Direct child
+            </span>
+       </div>
+       <div>
+        Another
+       </div>
+       <span class="container"> Span element</span>
+       <form>
+            Name <input type="text"></br>
+            <input type="button" value="Update"/>
+       </form>
+       <table>
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+            </thead>
+            <tbody id="tblContainer">
+                <tr>
+                    <td>1</td>
+                    <td>One</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Two</td>
+                </tr>
+            </tbody>
+       </table>
+    </body>    
+
+    <script>
+        let divs = document.querySelectorAll('div');
+        console.log('Div ',divs);
+
+        console.log('querySelector ',document.querySelector('div'));
+        console.log('querySelector #container',document.querySelector('#parent'));
+        document.querySelector('#parent')
+                .addEventListener('click',(e)=>{
+                    console.log('Click ',e);
+                });
+        console.log('querySelectorAll .container ',document.querySelectorAll('.container'));  
+        console.log('querySelector input[type="text"]',document.querySelector('input[type="text"]'));     
+        console.log('querySelectorAll div span ',document.querySelectorAll('div span'));
+        console.log('querySelectorAll div> span ',document.querySelectorAll('div> span'));   
+        console.log('querySelectorAll #tblContainer>tr:first-child ',document.querySelectorAll('#tblContainer>tr:first-child'));   
+    </script>    
+</html>

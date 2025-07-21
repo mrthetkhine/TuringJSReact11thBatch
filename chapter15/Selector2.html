@@ -1,0 +1,35 @@
+<html>
+    <body>
+       
+       <div id="parent" class="container">
+            Parent 
+            <div id="child">
+                Child
+            </div>
+            <p>
+                <span>
+                    Span under div
+                </span>
+            </p>
+            <span>
+                Direct child
+            </span>
+       </div>
+       <h1>
+            h1 after div
+       </h1>
+       <span>
+            Span after h1
+       </span>
+       <h1>
+            h1 after span
+       </h1>
+    </body>    
+
+    <script>
+       
+        console.log('querySelectorAll div+h1 ',document.querySelectorAll('div+h1'));
+        console.log('querySelectorAll div+~h1 ',document.querySelectorAll('div~h1'));  
+           
+    </script>    
+</html>
