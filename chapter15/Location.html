@@ -1,0 +1,50 @@
+<html>
+    <style>
+        #container
+        {
+            width: 200px;
+            height: 2000px;
+            
+        }
+    </style>
+    <body>
+        
+        <button type="button" id="btnGo">
+            Go
+        </button>
+        <button type="button" id="btnEnd">
+            Go to down
+        </button>
+         
+        <div id="container">
+            Container
+        </div>
+        <button type="button" id="btnBack">
+            Back
+        </button>
+        <div id="end">
+            End
+        </div>
+    </body>    
+
+    <script>
+        document.getElementById('btnGo')
+                .addEventListener('click', () => {
+                    window.location = 'https://www.google.com';
+                })
+        document.getElementById('btnEnd')
+                .addEventListener('click', () => {
+                    window.location = '#end';
+                    
+                });
+        document.getElementById('btnBack')
+                .addEventListener('click', () => {
+                    window.history.go(-1);
+                    
+                });
+        window.addEventListener('hashchange',(e)=>{
+            console.log('hash change ',e)
+        })
+                
+    </script>    
+</html>

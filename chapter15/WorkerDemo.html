@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <script>
+
+        function delay(miliseconds)
+        {
+            let start = new Date();
+            while( (end=new Date())-start <miliseconds );
+        }
+        let worker = new Worker("worker.js");
+        console.log('Post message');
+        setInterval(()=>{
+            console.log('Hello');
+        },0);
+        
+        
+
+        
+        
+        console.log('Send data to worker');
+        worker.postMessage({
+            data : 5
+        });
+        worker.addEventListener('message',event=>{
+            console.log("Message received from worker ",event.data);
+        });
+        document.addEventListener('click',(event)=>{
+            console.log('Click');
+        });
+  </script>
+</head>
+</html>
