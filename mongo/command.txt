@@ -1,0 +1,164 @@
+mongosh
+
+show databases;
+
+show colelctions;
+
+use react_11batch_test;
+
+db.todos.insertOne({
+    "title":"Todo 1",
+    "completed":true
+});
+
+db.todos.insertOne({
+    "title":"Todo 1",
+    "completed":true,
+    "user":"Some user"
+});
+db.todos.insertMany([
+    {
+    "title":"Todo 3",
+    "completed":true,
+    "user":"Some user"
+    },
+     {
+    "title":"Todo 4",
+    "completed":true,
+    "user":"Some user"
+    },
+]);
+
+db.movies.insertOne({
+    title:"Titanic",
+    year:200,
+    actors:[
+        {
+            name: "Leonardo Decaprio",
+            gender:"Male",
+
+        },
+        {
+            name: "Kate Winslect",
+            gender:"Female",
+        }
+    ]
+})
+
+//select all
+db.todos.find();
+db.todos.find({
+    _id: ObjectId('688df2115986ad688842a6ab'),
+})
+
+db.todos.find({
+    "title":"Todo 1",
+});
+//AND
+db.todos.find({
+    "title":"Todo 1",
+    "user": 'Some user'
+});
+
+db.inventory.insertMany([
+   { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+   { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
+   { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+   { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+   { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
+]);
+db.inventory.find( {  qty: { $gt: 30 } } )
+
+db.inventory.find({  
+    qty: { $gt: 30 },
+    "status":"A", 
+})
+//status A or D
+db.inventory.find( { status: { $in: [ "A", "D" ] } } )
+
+//or 
+db.inventory.find( { $or: [ { status: "A" }, { qty: { $lt: 30 } } ] } )
+
+db.inventory.find( {
+     status: "A",
+     $or: [ { qty: { $lt: 30 } }, { item: /^p/ } ]
+})
+//not 
+//item!= 'journal'
+db.inventory.find({
+  item:{
+    $not:/journal/
+  }
+});
+
+db.inventory.insertMany([
+   { item: "journal", qty: 25, tags: ["blank", "red"], dim_cm: [ 14, 21 ] },
+   { item: "notebook", qty: 50, tags: ["red", "blank"], dim_cm: [ 14, 21 ] },
+   { item: "paper", qty: 100, tags: ["red", "blank", "plain"], dim_cm: [ 14, 21 ] },
+   { item: "planner", qty: 75, tags: ["blank", "red"], dim_cm: [ 22.85, 30 ] },
+   { item: "postcard", qty: 45, tags: ["blue"], dim_cm: [ 10, 15.25 ] }
+]);
+
+//exact match
+db.inventory.find( { tags: ["red", "blank"] } )
+
+//all 
+db.inventory.find( { tags: { $all: ["red", "blank"] } } )
+
+//not exact cross element 
+db.inventory.find( { dim_cm: { $gt: 15, $lt: 20 } } )
+
+//element that is gt 22 and lt 30
+db.inventory.find( { dim_cm: { $elemMatch: { $gt: 22, $lt: 30 } } } )
+
+db.inventory.insertMany( [
+   { item: "journal", instock: [ { warehouse: "A", qty: 5 }, { warehouse: "C", qty: 15 } ] },
+   { item: "notebook", instock: [ { warehouse: "C", qty: 5 } ] },
+   { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 15 } ] },
+   { item: "planner", instock: [ { warehouse: "A", qty: 40 }, { warehouse: "B", qty: 5 } ] },
+   { item: "postcard", instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }
+]);
+
+//exact match 
+db.inventory.find( { "instock": { warehouse: "A", qty: 5 } } )
+
+//notworking 
+db.inventory.find( { size: {  w: 21,h: 14, uom: "cm" } } )
+
+//working 
+db.inventory.find( { 
+    "size.w": 21,
+    "size.h": 14, 
+    "size.uom": "cm"}   
+)
+
+//Project
+db.inventory.find({},{status:1});
+
+db.inventory.find({},{status:0});
+
+db.todos.find({
+    _id: ObjectId('688df1af5986ad688842a6aa')
+})
+
+db.todos.updateOne(
+  {_id: ObjectId('688df1af5986ad688842a6aa')},
+  [
+     { $set: { "title": "Todo 1 updated"} },
+     { $unset:["user"]}
+ ]
+)
+
+db.todos.updateMany(
+   {  },
+   [
+    { $unset:["user"]}
+     
+     
+   ]
+   
+)
+
+db.todos.deleteOne({
+    _id:ObjectId('688df2115986ad688842a6ac')
+})

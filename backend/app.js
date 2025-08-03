@@ -3,27 +3,42 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+const { db } = require('./config/database');
+
+let customerLogger = require('./middlewares/loggerMiddleware');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let todosRouter = require('./routes/todos');
 let testRouter = require('./routes/test');
+let movieRouter = require('./routes/movies');
 var app = express();
+
+mongoose.connect(db).then(() => console.log('MongoDB connected!'))
+    .catch(err => console.log(err));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
+app.use(customerLogger('turingLogger'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function (req, res, next) {
+  console.log('Our Middleware time',req.time, ' Url ',req.url);
+  next();
+})
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test',testRouter);
 app.use('/api/todos', todosRouter);
+app.use('/api/movies',movieRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
