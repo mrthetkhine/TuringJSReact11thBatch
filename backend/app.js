@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 let todosRouter = require('./routes/todos');
 let testRouter = require('./routes/test');
 let movieRouter = require('./routes/movies');
+let reviewRouter = require('./routes/reviews');
 var app = express();
 
 mongoose.connect(db).then(() => console.log('MongoDB connected!'))
@@ -39,6 +40,7 @@ app.use('/users', usersRouter);
 app.use('/test',testRouter);
 app.use('/api/todos', todosRouter);
 app.use('/api/movies',movieRouter);
+app.use('/api/reviews', reviewRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
