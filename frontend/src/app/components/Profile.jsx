@@ -1,13 +1,15 @@
-export default function Profile()
+export default function Profile({profile,size=100})
 {
     console.log('Profile Component');
+
     return (<div>
-            <h3>Profile</h3>
+
+        <h2>{profile.name}</h2>
             <img
-                src="https://i.imgur.com/MK3eW3Am.jpg"
+                src={profile.image}
                 alt="Katherine Johnson"
-                width="100"
-                height="100"
+                width={size}
+                height={size}
                 className={"profile"}
             />
     </div>);
