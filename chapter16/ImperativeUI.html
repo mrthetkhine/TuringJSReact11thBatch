@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <form>
+            Price <input type="text" id="txtPrice"/><br/>
+            Qty <input type="text" id="txtQty"/><br/>
+            Total <div id="total">0</div>
+        </form>
+    </body>    
+
+    <script>
+        function computeTotal()
+        {
+            let price = parseInt(document.getElementById("txtPrice").value);
+            let qty = parseInt(document.getElementById("txtQty").value);
+            let total = price * qty;
+            document.getElementById("total").innerHTML = total;
+        }
+        document.getElementById('txtPrice').addEventListener('change', computeTotal);
+        document.getElementById('txtQty').addEventListener('change', computeTotal);
+    </script>    
+</html>

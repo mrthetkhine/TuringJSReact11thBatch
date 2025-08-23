@@ -10,9 +10,23 @@ import UserAccount from "@/app/components/conditional_render/UserAccount";
 import Conditional from "@/app/components/conditional_render/Conditional";
 import ItemList from "@/app/components/list/ItemList";
 import TodoListDemo from "@/app/components/list/TodoListDemo";
+import CustomButtonDemo from "@/app/components/CustomButtonDemo";
+import PropagationDemo from "@/app/components/PropagationDemo";
+import Counter from "@/app/components/Counter";
+import TabDemo from "@/app/components/tab/TabDemo";
+import StateProblem1 from "@/app/components/state/StateProblem1";
+import UpdateObject from "@/app/components/state/UpdateObject";
+import ItemListEditor from "@/app/components/ItemListEditor";
+import ItemCart from "@/app/components/ItemCart";
+import ReconcilationOne from "@/app/components/reconcilaton/ReconcilationOne";
+import SamePosition from "@/app/components/reconcilaton/SamePosition";
+import DifferentElement from "@/app/components/reconcilaton/DifferentElement";
+import SamePositionReset from "@/app/components/reconcilaton/SamePositionReset";
+import DifferentKey from "@/app/components/reconcilaton/DifferentKey";
+import CounterWithReducer from "@/app/components/reducer/CounterWithReducer";
 
 export default function Home() {
-    //console.log("Home page profile ",Profile());
+    //console.log("Home page Container ",Container());
     let profile1 = {
         name : 'Jhon',
         image:"https://randomuser.me/api/portraits/men/34.jpg"
@@ -58,7 +72,24 @@ export default function Home() {
        {/* <UserAccount role={"admin"}/>*/}
       {/*  <Conditional role={"admin"}/>*/}
        {/* <ItemList items={['Apple','Orange',"Banna"]}/>*/}
-        <TodoListDemo/>
+       {/* <TodoListDemo/>*/}
+      {/*  <CustomButtonDemo/>*/}
+       {/* <PropagationDemo/>*/}
+        {/*<Counter/>
+        <Counter/>*/}
+       {/* <TabDemo/>*/}
+      {/*  <StateProblem1/>*/}
+      {/*  <Counter/>
+        <Counter/>*/}
+       {/* <UpdateObject/>*/}
+       {/* <ItemListEditor/>*/}
+       {/* <ItemCart/>*/}
+      {/*  <ReconcilationOne/>*/}
+      {/*  <SamePosition/>*/}
+       {/* <DifferentElement/>*/}
+     {/*   <SamePositionReset/>*/}
+      {/*  <DifferentKey/>*/}
+        <CounterWithReducer/>
     </div>
   );
 }

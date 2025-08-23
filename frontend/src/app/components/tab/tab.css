@@ -1,0 +1,15 @@
+.tab-header{
+    display: inline-block;
+    min-width: 150px;
+    text-align: center;
+    border:1px solid gray;
+    min-height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.tab-content{
+    border:1px solid gray;
+    min-height: 200px;
+    padding:5px;
+}
