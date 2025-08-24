@@ -24,6 +24,11 @@ import DifferentElement from "@/app/components/reconcilaton/DifferentElement";
 import SamePositionReset from "@/app/components/reconcilaton/SamePositionReset";
 import DifferentKey from "@/app/components/reconcilaton/DifferentKey";
 import CounterWithReducer from "@/app/components/reducer/CounterWithReducer";
+import TodoListWithReducer from "@/app/components/reducer/TodoListWithReducer";
+import WhyContext from "@/app/components/context/WhyContext";
+import ContextDemo from "@/app/components/context/ContextDemo";
+import TodoReducerWithContext from "@/app/components/context/TodoReducerWithContext";
+import FilterableProductTable from "@/app/components/product/FilterableProductTable";
 
 export default function Home() {
     //console.log("Home page Container ",Container());
@@ -89,7 +94,12 @@ export default function Home() {
        {/* <DifferentElement/>*/}
      {/*   <SamePositionReset/>*/}
       {/*  <DifferentKey/>*/}
-        <CounterWithReducer/>
+      {/*  <CounterWithReducer/>*/}
+      {/*  <TodoListWithReducer/>*/}
+       {/* <WhyContext/>*/}
+       {/* <ContextDemo/>*/}
+        {/*<TodoReducerWithContext/>*/}
+        <FilterableProductTable/>
     </div>
   );
 }
