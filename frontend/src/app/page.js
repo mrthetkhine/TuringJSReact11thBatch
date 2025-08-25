@@ -29,6 +29,13 @@ import WhyContext from "@/app/components/context/WhyContext";
 import ContextDemo from "@/app/components/context/ContextDemo";
 import TodoReducerWithContext from "@/app/components/context/TodoReducerWithContext";
 import FilterableProductTable from "@/app/components/product/FilterableProductTable";
+import WhyRef from "@/app/components/ref/WhyRef";
+import RefDemo from "@/app/components/ref/RefDemo";
+import FocusInput from "@/app/components/ref/FocusInput";
+import DatePicker from "@/app/components/ref/DatePicker";
+import ReactProblem from "@/app/components/ref/ReactProblem";
+import WhyEffect from "@/app/components/effect/WhyEffect";
+import EffectDemo from "@/app/components/effect/EffectDemo";
 
 export default function Home() {
     //console.log("Home page Container ",Container());
@@ -99,7 +106,14 @@ export default function Home() {
        {/* <WhyContext/>*/}
        {/* <ContextDemo/>*/}
         {/*<TodoReducerWithContext/>*/}
-        <FilterableProductTable/>
+      {/*  <FilterableProductTable/>*/}
+       {/* <WhyRef/>*/}
+       {/* <RefDemo/>*/}
+       {/* <FocusInput/>*/}
+       {/* <DatePicker/>*/}
+       {/* <ReactProblem/>*/}
+       {/* <WhyEffect/>*/}
+        <EffectDemo/>
     </div>
   );
 }

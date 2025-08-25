@@ -8,3 +8,7 @@
     min-width:250px;
     display:inline-block;
 }
+.product-not-in-stock
+{
+    color:red;
+}

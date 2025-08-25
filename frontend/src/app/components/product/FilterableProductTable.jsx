@@ -1,17 +1,29 @@
 'use client';
 import {useState} from "react";
 import {data} from "@/app/components/product/data";
+import classNames from 'classnames';
 import './product.css';
-function SearchBar()
+function SearchBar({onFilterChange})
 {
     let [filter, setFilter] = useState('');
     let [inStock, setInStock] = useState(false);
 
+
     const filterChange = (e)=>{
+        onFilterChange({
+            filter:e.target.value,
+            inStock,
+        });
         setFilter(e.target.value);
+
     }
     const inStockChange = (e)=>{
+        onFilterChange({
+            filter,
+            inStock:e.target.checked,
+        });
         setInStock(e.target.checked);
+
     }
     return(<div>
         <form>
@@ -22,11 +34,19 @@ function SearchBar()
 
     </div>);
 }
-function ProductTable({products}){
+function ProductTable({group}){
+    //console.log('Group category',Object.keys(group));
+    let categories = Object.keys(group);
     return(<div>
         <h3>Name  Price </h3>
-        <ProductCategoryRow products={products} title={"Fruit"}/>
-        <ProductCategoryRow products={products} title={"Vegetables"}/>
+        {
+            categories.map(category=><ProductCategoryRow key={category}
+                                              title={category}
+                                              products={group[category]}>
+
+            </ProductCategoryRow>)
+        }
+
     </div>)
 }
 function ProductCategoryRow({title,products})
@@ -40,17 +60,56 @@ function ProductCategoryRow({title,products})
 }
 function ProductRow({product})
 {
+    const productClass = classNames({
+        'product-name': true,
+        'product-not-in-stock':  !product.stocked,
+
+    });
     return(<div>
-        <span className={'product-name'}>{product.name}  </span>
+        <span className={productClass}>{product.name}  </span>
         <span className={'product-price'}>{product.price}</span>
     </div>);
+}
+function applyFilter(data,filterParams)
+{
+    let newData = [...data];
+    if(filterParams.filter)
+    {
+        newData = newData.filter(product=>product.name.includes(filterParams.filter));
+    }
+    if(filterParams.inStock){
+        newData = newData.filter(product=>product.stocked);
+    }
+    return newData;
+}
+function groupByCategory(products)
+{
+    let group = {};
+    for(let product of products){
+        if(group[product.category]){
+            group[product.category].push(product);
+        }
+        else
+        {
+            group[product.category]= [product];
+        }
+    }
+    return group;
 }
 export default function FilterableProductTable()
 {
     let [products, setProducts] = useState(data);
+
+    const onFilterChange = (filterParams)=>{
+        console.log('Filter change', filterParams);
+        let newData = [...applyFilter(data, filterParams)];
+        setProducts(newData);
+    }
+    let group = groupByCategory(products);
+    console.log('Group ',group);
     return(<div>
-        FilterableProductTable
-        <SearchBar/>
-        <ProductTable products={products}/>
+
+        <SearchBar onFilterChange={onFilterChange}/>
+        <ProductTable group={group}/>
     </div>);
 }
