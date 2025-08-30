@@ -1,6 +1,6 @@
 'use client';
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 let id = 5;
 function nextId()
@@ -8,22 +8,7 @@ function nextId()
     return id++;
 }
 let initTodos = [
-    {
-        "id": 1,
-        "title":"Task 1",
-    },
-    {
-        "id": 2,
-        "title":"Task 2",
-    },
-    {
-        "id": 3,
-        "title":"Task 3",
-    },
-    {
-        "id": 4,
-        "title":"Task 4",
-    },
+
 
 ]
 function TodoList({todos,onDelete,onUpdate})
@@ -52,6 +37,11 @@ export default function ItemListEditor(){
     const [todos,setTodos] = useState(initTodos);
     const [todoText, setTodoText] = useState('');
 
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/todos')
+            .then(response => response.json())
+            .then(json => setTodos(json));
+    }, []);
     console.log('Render itemListEditor');
     let addTodoHandler = ()=>{
 

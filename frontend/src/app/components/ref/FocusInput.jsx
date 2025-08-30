@@ -1,9 +1,10 @@
 'use client';
 import {useEffect, useRef} from "react";
+import useCustomRef from "@/app/components/hook/useCustomRef";
 
 export default function FocusInput()
 {
-    const inputRef = useRef(null);
+    const inputRef = useCustomRef(null);
     useEffect(() => {
         inputRef.current.focus();
     }, []);

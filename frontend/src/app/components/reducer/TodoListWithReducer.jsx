@@ -1,6 +1,7 @@
 'use client'
 
 import {useReducer, useState} from "react";
+import useCustomReducer from "@/app/components/hook/useCustomReducer";
 
 
 export function todoReducer(state, action){
@@ -113,7 +114,7 @@ function TodoCount({count})
 }
 export default function TodoListWithReducer()
 {
-    const [todos,dispatch] = useReducer(todoReducer,initialTodos);
+    const [todos,dispatch] = useCustomReducer(todoReducer,initialTodos);
     const onDeleteHandler = (todo)=>{
         console.log('onDelete ',todo);
         dispatch({

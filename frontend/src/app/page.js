@@ -36,6 +36,11 @@ import DatePicker from "@/app/components/ref/DatePicker";
 import ReactProblem from "@/app/components/ref/ReactProblem";
 import WhyEffect from "@/app/components/effect/WhyEffect";
 import EffectDemo from "@/app/components/effect/EffectDemo";
+import WhyCleanUp from "@/app/components/effect/WhyCleanUp";
+import FetchTodo from "@/app/components/hook/FetchTodo";
+import FetchUser from "@/app/components/hook/FetchUser";
+import HookRule from "@/app/components/hook/HookRule";
+import SideEffectOutsideRender from "@/app/components/hook/SideEffectOutsideRender";
 
 export default function Home() {
     //console.log("Home page Container ",Container());
@@ -94,7 +99,7 @@ export default function Home() {
       {/*  <Counter/>
         <Counter/>*/}
        {/* <UpdateObject/>*/}
-       {/* <ItemListEditor/>*/}
+
        {/* <ItemCart/>*/}
       {/*  <ReconcilationOne/>*/}
       {/*  <SamePosition/>*/}
@@ -113,7 +118,16 @@ export default function Home() {
        {/* <DatePicker/>*/}
        {/* <ReactProblem/>*/}
        {/* <WhyEffect/>*/}
-        <EffectDemo/>
+       {/* <EffectDemo/>*/}
+      {/* <ItemListEditor/>*/}
+      {/*  <WhyCleanUp/>*/}
+      {/*  <FetchTodo/>*/}
+       {/* <FetchUser/>*/}
+       {/* <TodoListWithReducer/>*/}
+      {/*  <FocusInput/>
+        <RefDemo/>*/}
+      {/*  <HookRule/>*/}
+        <SideEffectOutsideRender/>
     </div>
   );
 }
