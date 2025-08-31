@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import Profile,{Another} from "@/app/components/Profile";
+import CallBackHookDemo from "@/app/components/hook/CallBackHookDemo";
+/*import Profile,{Another} from "@/app/components/Profile";
 import JsxDemo from "@/app/components/JsxDemo";
 import Greeting from "@/app/components/Greeting";
 import Border from "@/app/components/Border";
@@ -40,7 +41,9 @@ import WhyCleanUp from "@/app/components/effect/WhyCleanUp";
 import FetchTodo from "@/app/components/hook/FetchTodo";
 import FetchUser from "@/app/components/hook/FetchUser";
 import HookRule from "@/app/components/hook/HookRule";
-import SideEffectOutsideRender from "@/app/components/hook/SideEffectOutsideRender";
+import SideEffectOutsideRender from "@/app/components/hook/SideEffectOutsideRender";*/
+
+
 
 export default function Home() {
     //console.log("Home page Container ",Container());
@@ -127,7 +130,8 @@ export default function Home() {
       {/*  <FocusInput/>
         <RefDemo/>*/}
       {/*  <HookRule/>*/}
-        <SideEffectOutsideRender/>
+     {/*   <SideEffectOutsideRender/>*/}
+        <CallBackHookDemo/>
     </div>
   );
 }
