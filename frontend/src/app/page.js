@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import CallBackHookDemo from "@/app/components/hook/CallBackHookDemo";
-/*import Profile,{Another} from "@/app/components/Profile";
+import Profile,{Another} from "@/app/components/Profile";
 import JsxDemo from "@/app/components/JsxDemo";
 import Greeting from "@/app/components/Greeting";
 import Border from "@/app/components/Border";
@@ -41,7 +41,17 @@ import WhyCleanUp from "@/app/components/effect/WhyCleanUp";
 import FetchTodo from "@/app/components/hook/FetchTodo";
 import FetchUser from "@/app/components/hook/FetchUser";
 import HookRule from "@/app/components/hook/HookRule";
-import SideEffectOutsideRender from "@/app/components/hook/SideEffectOutsideRender";*/
+import SideEffectOutsideRender from "@/app/components/hook/SideEffectOutsideRender";
+import WaitPromise from "@/app/components/hook/WaitPromise";
+import SearchResultDemo from "@/app/components/hook/SearchResultDemo";
+import UniqueId from "@/app/components/hook/UniqueId";
+import ImperativeHandleDemo from "@/app/components/hook/ImperativeHandleDemo";
+import TableDemo from "@/app/components/TableDemo";
+import Modal from "@/app/components/modal/Modal";
+import {createPortal} from "react-dom";
+import ModalDemo from "@/app/components/modal/ModalDemo";
+import ErorrBoundaryDemo from "@/app/components/error_boundary/ErorrBoundaryDemo";
+import Carousal from "@/app/components/carousal/Carousal";
 
 
 
@@ -125,13 +135,37 @@ export default function Home() {
       {/* <ItemListEditor/>*/}
       {/*  <WhyCleanUp/>*/}
       {/*  <FetchTodo/>*/}
-       {/* <FetchUser/>*/}
+      {/*  <FetchUser/>*/}
        {/* <TodoListWithReducer/>*/}
       {/*  <FocusInput/>
         <RefDemo/>*/}
       {/*  <HookRule/>*/}
      {/*   <SideEffectOutsideRender/>*/}
-        <CallBackHookDemo/>
+     {/*   <CallBackHookDemo/>*/}
+      {/*  <WaitPromise/>*/}
+       {/* <SearchResultDemo/>*/}
+       {/* <UniqueId/>*/}
+       {/* <ImperativeHandleDemo />*/}
+       {/* <TableDemo/>*/}
+      {/*  <ModalDemo/>*/}
+       {/* <ErorrBoundaryDemo>
+
+        </ErorrBoundaryDemo>
+*/}
+        <Carousal>
+            <div>
+                <img src="https://splidejs.com/images/slides/image-slider/01.jpg" width={"100%"} height={200}  />
+            </div>
+            <div>
+                Page 2
+            </div>
+            <div>
+                Page 3
+            </div>
+            <div>
+                <h3>Page 4</h3>
+            </div>
+        </Carousal>
     </div>
   );
 }

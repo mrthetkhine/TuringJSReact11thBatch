@@ -34,6 +34,7 @@ function SearchBar({onFilterChange})
 
     </div>);
 }
+//Presentational
 function ProductTable({group}){
     //console.log('Group category',Object.keys(group));
     let categories = Object.keys(group);
@@ -49,6 +50,7 @@ function ProductTable({group}){
 
     </div>)
 }
+//Pure component
 function ProductCategoryRow({title,products})
 {
     return(<div>
@@ -96,6 +98,7 @@ function groupByCategory(products)
     }
     return group;
 }
+//Container
 export default function FilterableProductTable()
 {
     let [products, setProducts] = useState(data);
