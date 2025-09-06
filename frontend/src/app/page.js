@@ -52,6 +52,10 @@ import {createPortal} from "react-dom";
 import ModalDemo from "@/app/components/modal/ModalDemo";
 import ErorrBoundaryDemo from "@/app/components/error_boundary/ErorrBoundaryDemo";
 import Carousal from "@/app/components/carousal/Carousal";
+import WhyHOC from "@/app/components/design_pattern/hoc/WhyHOC";
+import AuthHocDemo from "@/app/components/design_pattern/hoc/AuthHocDemo";
+import WhyRenderProperty from "@/app/components/design_pattern/render_property/WhyRenderProperty";
+import RenderPropertyDemo from "@/app/components/design_pattern/render_property/RenderPropertyDemo";
 
 
 
@@ -152,7 +156,7 @@ export default function Home() {
 
         </ErorrBoundaryDemo>
 */}
-        <Carousal>
+        {/*<Carousal>
             <div>
                 <img src="https://splidejs.com/images/slides/image-slider/01.jpg" width={"100%"} height={200}  />
             </div>
@@ -165,7 +169,11 @@ export default function Home() {
             <div>
                 <h3>Page 4</h3>
             </div>
-        </Carousal>
+        </Carousal>*/}
+       {/* <WhyHOC/>*/}
+       {/* <AuthHocDemo/>*/}
+       {/* <WhyRenderProperty/>*/}
+        <RenderPropertyDemo/>
     </div>
   );
 }
