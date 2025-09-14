@@ -1,10 +1,10 @@
 import {useAppSelector} from "@/lib/hooks";
-import {selectTodo} from "@/lib/features/todos/todoSlice";
+import {selectTodo, selectTodoCount} from "@/lib/features/todos/todoSlice";
 
 export default function TodoCount()
 {
-    const todos = useAppSelector(selectTodo);
+    const count = useAppSelector(selectTodoCount);
     return(<div>
-        <h1>Count {todos.length}</h1>
+        <h1>Count {count}</h1>
     </div>)
 }
