@@ -17,8 +17,8 @@ export default function IndexPage() {
     {/*<CounterWithReducer/>*/}
    {/* <ContextDemo/>*/}
   {/*  <TodoWithReducer/>*/}
-    <TodoCount/>
-    <TodoListWithReduxDemo/>
+{/*    <TodoCount/>
+    <TodoListWithReduxDemo/>*/}
   </div>)
 }
 
