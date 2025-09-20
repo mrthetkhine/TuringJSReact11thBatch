@@ -4,8 +4,8 @@ import {TodoModel} from "@/app/components/reducer/TodoModel";
 import {Button, Card, CardActions, CardContent} from "@mui/material";
 
 import {useAppDispatch} from "@/lib/hooks";
-import {updateTodo,deleteTodo} from "@/lib/features/todos/todoSlice";
-import {Todo} from "@/lib/features/todoApi/todoApiSlice";
+
+import {Todo, useDeleteTodoMutation, useUpdateTodoMutation} from "@/lib/features/todoApi/todoApiSlice";
 import {useRouter} from "next/navigation";
 
 
@@ -16,6 +16,8 @@ interface TodoUiPros
 }
 export default function TodoUiTwo({todo}:TodoUiPros) {
 
+    const [deleteTodo, deletedResult] = useDeleteTodoMutation();
+    const [updateTodo, updateTodoResult] = useUpdateTodoMutation();
     const router = useRouter();
     const onEditHandler= ()=>{
         console.log("onEditHandler");
@@ -23,11 +25,18 @@ export default function TodoUiTwo({todo}:TodoUiPros) {
             ...todo,
             title: "Update "+todo.title
         }
+        updateTodo(editedTodo);
 
     }
     const onDeleteHandler= ()=>{
         console.log("onDeleteHandler");
-
+        deleteTodo(todo)
+            .unwrap()
+            .then((data)=>{
+                console.log("onDeleteHandlerSuccess ",data);
+            },(error)=>{
+                console.log("onDeleteHandler Error ",error);
+            });
 
     }
     const onDetailsHandler= (id:string)=>{
@@ -42,7 +51,7 @@ export default function TodoUiTwo({todo}:TodoUiPros) {
                 &nbsp;
                 <Button variant="contained" onClick={onDeleteHandler}>Delete</Button>
                 &nbsp;
-                <Button variant="contained" onClick={()=>onDetailsHandler(todo._id)}>Details</Button>
+                <Button variant="contained" onClick={()=>onDetailsHandler(todo._id!)}>Details</Button>
             </CardContent>
 
         </Card>

@@ -68,8 +68,13 @@ async function updateTodo (req, res, next) {
         })
     }
 }
+async function delay(ms)
+{
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 async function deleteTodo (req, res) {
     const id = req.params.id;
+    await delay(4000);
     try
     {
         let todo = await todoService.deleteTodo(id);

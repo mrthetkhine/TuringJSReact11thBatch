@@ -20,8 +20,11 @@ export default function TodoEntryTwo()
             completed:true,
         }
         console.log('new todo ',newTodo);
-        let response =saveTodo(newTodo);
-        console.log( 'response ',response );
+        saveTodo(newTodo)
+            .unwrap()
+            .then((data)=>console.log('Save todo success ',data),
+                (error)=>console.log('Save to do error',error));
+
         setTodoText('');
     }
     return(<div>
