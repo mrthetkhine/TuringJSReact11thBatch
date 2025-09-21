@@ -146,7 +146,7 @@ export default function Home() {
       {/*  <HookRule/>*/}
      {/*   <SideEffectOutsideRender/>*/}
      {/*   <CallBackHookDemo/>*/}
-      {/*  <WaitPromise/>*/}
+        <WaitPromise/>
        {/* <SearchResultDemo/>*/}
        {/* <UniqueId/>*/}
        {/* <ImperativeHandleDemo />*/}

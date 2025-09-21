@@ -4,21 +4,19 @@
     "dev": "next -p 8080",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "check": "tsc"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@material-ui/core": "^4.12.4",
     "@mui/material": "^7.3.2",
     "@mui/material-nextjs": "^7.3.2",
     "@reduxjs/toolkit": "^2.2.0",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^9.1.0",
-    "swr": "^2.3.6"
+    "react-redux": "^9.1.0"
   },
   "devDependencies": {
     "@types/node": "20.2.5",

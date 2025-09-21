@@ -1,10 +1,10 @@
 import { Quotes } from "../components/quotes/Quotes";
-import './../global.css';
+
 export default function QuotesPage() {
   return (
     <>
       <h1>Quotes page</h1>
-      <p className={"container"}>This page is intended to showcase RTK Query.</p>
+      <p>This page is intended to showcase RTK Query.</p>
       <Quotes />
     </>
   );

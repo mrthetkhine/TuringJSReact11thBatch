@@ -9,8 +9,8 @@ export default function TodoPage()
     useEffect(()=>{
         console.log('fetch todo');
         fetch('https://jsonplaceholder.typicode.com/todos')
-        .then(res=>res.json())
-         .then((json:TodoModel[])=>setTodos(json));
+            .then(res=>res.json())
+            .then((json:TodoModel[])=>setTodos(json));
 
     },[]);
     return (<div>

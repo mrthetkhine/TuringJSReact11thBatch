@@ -34,6 +34,30 @@ export const Nav = () => {
       </Link>
         <Link
             className={`${styles.link} ${
+                pathname === "/users" ? styles.active : ""
+            }`}
+            href="/users"
+        >
+            Users
+        </Link>
+        <Link
+            className={`${styles.link} ${
+                pathname === "/blog" ? styles.active : ""
+            }`}
+            href="/blog"
+        >
+            Blogs
+        </Link>
+        <Link
+            className={`${styles.link} ${
+                pathname === "/shopping/compute" ? styles.active : ""
+            }`}
+            href="/shopping/computer"
+        >
+            Computer
+        </Link>
+        <Link
+            className={`${styles.link} ${
                 pathname === "/todos" ? styles.active : ""
             }`}
             href="/todos"
