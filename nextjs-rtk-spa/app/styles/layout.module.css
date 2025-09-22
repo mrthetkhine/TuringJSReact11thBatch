@@ -21,6 +21,7 @@
 
 .main {
   grid-area: main;
+  padding-top:10px;
 }
 
 .header,
