@@ -13,8 +13,19 @@ import {Movie} from "@/lib/model/model";
 import {MovieFormData, MovieFormSchema} from "@/lib/schema/schema";
 import {zodResolver} from "@hookform/resolvers/zod";
 
+interface MovieEntryProps {
+    open: boolean;
+    handleOpen: () => void;
+    handleClose: () => void;
+    movieToEdit?: Movie;
+}
 
-export default function MovieEntry()
+export default function MovieEntry({
+    open,
+    handleOpen,
+    handleClose,
+    movieToEdit,
+                                   }:MovieEntryProps)
 {
     const {
         register,
@@ -25,29 +36,11 @@ export default function MovieEntry()
         resolver: zodResolver(MovieFormData),
     })
 
-    const [open, setOpen] = React.useState(false);
 
-    const [email,setEmail] = React.useState('');
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
     const onSubmit = (data: MovieFormSchema) => console.log(data);
-    /*const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-      /!*  const formData = new FormData(event.currentTarget);
-        const formJson = Object.fromEntries((formData as any).entries());
-        const email = formJson.email;
-        console.log(email);*!/
-        console.log('Email ',email);
-        handleClose();
-    };*/
-    return(<div>
-        <Button size="large" variant={"contained"} onClick={handleClickOpen}>New</Button>
+
+    return(<div >
+        <Button size="large" variant={"contained"} onClick={handleOpen}>New</Button>
         <Dialog open={open} onClose={handleClose}
 
                 maxWidth={'lg'}>

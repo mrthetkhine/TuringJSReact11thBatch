@@ -1,4 +1,4 @@
-import {Movie} from "@/lib/model/model";
+import {Movie, Review} from "@/lib/model/model";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
@@ -25,6 +25,7 @@ function renderDirector(movie:Movie)
 }
 interface MovieDetailsUIProps {
     movie:Movie;
+
 }
 export default function MovieDetailsUI({movie}:MovieDetailsUIProps) {
     return(<MovieUI movie={movie}

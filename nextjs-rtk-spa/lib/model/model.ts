@@ -11,3 +11,10 @@ export interface Movie
     year: number;
     director:Director;
 }
+export interface Review
+{
+    _id: string;
+    movie: string;
+    rating: number;
+    review: string;
+}

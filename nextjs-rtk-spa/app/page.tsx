@@ -11,7 +11,7 @@ export default function IndexPage() {
    {/* <SimpleForm/>*/}
    {/* <NormalForm/>*/}
   {/*  <CustomForm/>*/}
-    <FormWithMui/>
+   {/* <FormWithMui/>*/}
   </div>);
 }
 

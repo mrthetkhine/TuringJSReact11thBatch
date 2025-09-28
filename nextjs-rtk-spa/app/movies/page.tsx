@@ -2,6 +2,7 @@
 import {Movie} from "@/lib/model/model";
 import MovieListUi from "@/app/movies/components/MovieListUi";
 import MovieEntry from "@/app/movies/components/MovieEntry";
+import * as React from "react";
 
 const movies:Movie[] = [
     {
@@ -40,8 +41,16 @@ const movies:Movie[] = [
 ]
 export default function MoviePage()
 {
+    const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
     return (<div>
-        <MovieEntry/>
+        <MovieEntry open={open} handleOpen={handleClickOpen} handleClose={handleClose}/>
         <MovieListUi movies={movies}/>
     </div>);
 }
