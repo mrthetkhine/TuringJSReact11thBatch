@@ -2,10 +2,14 @@ import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { counterSlice } from "./features/counter/counterSlice";
 import { quotesApiSlice } from "./features/quotes/quotesApiSlice";
+import {authSlice} from "@/lib/features/auth/authSlice";
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
-const rootReducer = combineSlices(counterSlice, quotesApiSlice);
+const rootReducer = combineSlices(
+    counterSlice,
+    quotesApiSlice,
+    authSlice);
 // Infer the `RootState` type from the root reducer
 export type RootState = ReturnType<typeof rootReducer>;
 

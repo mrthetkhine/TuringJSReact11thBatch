@@ -3,11 +3,19 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import MovieUI from "@/app/movies/components/MovieUI";
+import useModal from "@/lib/hooks/useModal";
+import MovieEntry from "@/app/movies/components/MovieEntry";
 
 function renderAction(movie:Movie)
 {
+    const {open,handleOpen,handleClose} = useModal();
     return (<>
-        <Button size="small">Edit</Button>
+        <MovieEntry
+            open={open}
+            handleOpen={handleOpen}
+            handleClose={handleClose}
+            movieToEdit={movie}/>
+        <Button size="small" onClick={handleOpen}>Edit</Button>
     </>);
 }
 function renderDirector(movie:Movie)

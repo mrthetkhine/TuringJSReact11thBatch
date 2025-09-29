@@ -17,6 +17,7 @@ import styles from "@/app/styles/layout.module.css";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import MenuLink from "@/app/components/MenuLink";
+import useAuth from "@/lib/hooks/useAuth";
 
 const pages = ['Home', 'Movies', 'Login'];
 const links = ['/', '/movies', '/login'];
@@ -25,6 +26,8 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 function ResponsiveAppBar() {
+
+    const isAuthenticated = useAuth();
     const pathname = usePathname();
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -125,9 +128,20 @@ function ResponsiveAppBar() {
                         LOGO
                     </Typography>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
-                        <MenuLink key={"home"} url="/home" label={"Home"}/>
-                        <MenuLink key={"movies"} url="/movies" label={"Movies"}/>
-                        <MenuLink key={"login"} url="/login" label={"Login"}/>
+                        {
+                            isAuthenticated && <MenuLink key={"home"} url="/home" label={"Home"}/>
+                        }
+                        {
+                            isAuthenticated && <MenuLink key={"movies"} url="/movies" label={"Movies"}/>
+                        }
+                        {
+                            !isAuthenticated && <MenuLink key={"login"} url="/login" label={"Login"}/>
+                        }
+
+                        {
+                            isAuthenticated && <MenuLink key={"logout"} url="/logout" label={"Logout"}/>
+                        }
+
                     </Box>
                     {/*<Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">

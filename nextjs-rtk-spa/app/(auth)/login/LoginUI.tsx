@@ -7,8 +7,17 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import {Box} from "@mui/material";
 import * as React from "react";
+import {useAppDispatch, useAppSelector} from "@/lib/hooks";
+import {selectAuth} from "@/lib/features/auth/authSlice";
+
+import useLogin from "@/lib/hooks/useLogin";
+
 
 export default function LoginUI(){
+
+    const auth = useAppSelector(selectAuth);
+    const loginAction = useLogin();
+
     const {
         register,
         handleSubmit,
@@ -19,6 +28,7 @@ export default function LoginUI(){
     });
     const onSubmit = (data: LoginFormSchema) => {
         console.log('login form submit ',data);
+        loginAction(data);
     }
 
     return (<div>
@@ -33,7 +43,7 @@ export default function LoginUI(){
                     margin="normal"
                 />
                 <TextField
-                    label="Year"
+                    label="Password"
                     {...register('password')}
                     type="password"
                     error={!!errors.password}

@@ -34,17 +34,28 @@ export default function MovieEntry({
         formState: { errors },
     } = useForm<MovieFormSchema>({
         resolver: zodResolver(MovieFormData),
+        defaultValues :{
+            title: movieToEdit?movieToEdit.title:'',
+            year: movieToEdit?movieToEdit.year:0,
+            director :{
+                name: movieToEdit?movieToEdit?.director?.name:'',
+                phoneNo: movieToEdit?movieToEdit?.director?.phoneNo:'',
+
+            }
+        }
     })
 
 
     const onSubmit = (data: MovieFormSchema) => console.log(data);
 
     return(<div >
-        <Button size="large" variant={"contained"} onClick={handleOpen}>New</Button>
+
         <Dialog open={open} onClose={handleClose}
 
                 maxWidth={'lg'}>
-            <DialogTitle>New Movie</DialogTitle>
+            <DialogTitle>
+                {movieToEdit?'Edit Movie ':'New Movie'}
+            </DialogTitle>
             <DialogContent>
                 <Box sx={{width: 500 }}>
                 <form onSubmit={handleSubmit(onSubmit)} id="subscription-form">
@@ -83,6 +94,10 @@ export default function MovieEntry({
                     />
                     <Button type="submit" variant="contained" color="primary">
                         Submit
+                    </Button>
+                    &nbsp;
+                    <Button type="button" variant="contained" color="primary" onClick={handleClose}>
+                        Cancel
                     </Button>
                 </form>
                 </Box>

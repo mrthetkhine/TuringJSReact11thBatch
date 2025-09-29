@@ -9,6 +9,7 @@ import MovieDetailsUI from "@/app/movies/components/MovieDetailsUI";
 import ReviewList from "../components/ReviewList";
 import ReviewEntry from "@/app/movies/components/ReviewEntry";
 import {ReviewFormSchema} from "@/lib/schema/schema";
+import useModal from "@/lib/hooks/useModal";
 
 const movie:Movie ={
         "_id": "688f46fedf30293259412334",
@@ -45,18 +46,13 @@ export default function MovieDetailsPage()
 
         },
     ];
-    const [open, setOpen] = React.useState(false);
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-    const handleClose = () => {
-        setOpen(false);
-    };
+
+    const {open,handleOpen,handleClose} = useModal();
     const onSubmit = (data: ReviewFormSchema) => console.log(data);
 
     const newButtonHandler = ()=>{
 
-        handleClickOpen();
+        handleOpen();
         console.log('Open new Review Entry ',open);
     }
     return(<div>
@@ -65,7 +61,7 @@ export default function MovieDetailsPage()
         <MovieDetailsUI movie={movie}/>
         <div style={{padding:'10px'}}>
             <Button size="large" variant={"contained"} onClick={newButtonHandler}>New</Button>
-            <ReviewEntry modalOpen={open} handleOpen={handleClickOpen} handleClose={handleClose}/>
+            <ReviewEntry modalOpen={open} handleOpen={handleOpen} handleClose={handleClose}/>
         </div>
         <div >
 
