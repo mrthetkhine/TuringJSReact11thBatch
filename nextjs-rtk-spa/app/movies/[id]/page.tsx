@@ -10,6 +10,8 @@ import ReviewList from "../components/ReviewList";
 import ReviewEntry from "@/app/movies/components/ReviewEntry";
 import {ReviewFormSchema} from "@/lib/schema/schema";
 import useModal from "@/lib/hooks/useModal";
+import {movieApiSlice} from "@/lib/features/movie/movieApiSlice";
+import { useGetAllReviewByMovieIdQuery } from "@/lib/features/review/reviewApiSlice";
 
 const movie:Movie ={
         "_id": "688f46fedf30293259412334",
@@ -26,11 +28,17 @@ const movie:Movie ={
 
 export default function MovieDetailsPage()
 {
-    const {id} = useParams();
+    const {id} = useParams<{ id: string }>();
+    const { movie } = movieApiSlice.useGetAllMoviesQuery(undefined, {
+        selectFromResult: ({ data }) => ({
+            movie: data?.data?.find((movie) => movie._id === id),
+        }),
+    })
+    const { data:response, isError, isLoading, isSuccess,refetch } = useGetAllReviewByMovieIdQuery(id);
     const router = useRouter();
     console.log('Params ',id);
 
-    const reviews:Review[]=[
+    /*const reviews:Review[]=[
         {
             "_id": "6890b89f4e66fd7c445ef4d9",
             "movie": "688f468ad5f7e98a92cc5843",
@@ -45,7 +53,7 @@ export default function MovieDetailsPage()
             "review": "second review for avatar 1",
 
         },
-    ];
+    ];*/
 
     const {open,handleOpen,handleClose} = useModal();
     const onSubmit = (data: ReviewFormSchema) => console.log(data);
@@ -58,14 +66,18 @@ export default function MovieDetailsPage()
     return(<div>
         <h1>Movie Details</h1>
         <Button size="medium" onClick={()=>router.push('/movies')}>Back</Button>
-        <MovieDetailsUI movie={movie}/>
+        {
+           movie && <MovieDetailsUI movie={movie}/>
+        }
         <div style={{padding:'10px'}}>
-            <Button size="large" variant={"contained"} onClick={newButtonHandler}>New</Button>
+            <Button size="large" variant={"contained"} onClick={newButtonHandler}>New Review</Button>
             <ReviewEntry modalOpen={open} handleOpen={handleOpen} handleClose={handleClose}/>
         </div>
         <div >
+            {
+                response?.data && <ReviewList reviews={response?.data}/>
+            }
 
-            <ReviewList reviews={reviews}/>
         </div>
 
     </div>)

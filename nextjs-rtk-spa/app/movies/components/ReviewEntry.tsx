@@ -33,11 +33,9 @@ export default function ReviewEntry({modalOpen,handleOpen,handleClose,reviewToEd
             rating: reviewToEdit? reviewToEdit.rating:0,
             review: reviewToEdit?reviewToEdit.review:''
         }
-    })
+    });
 
-
-
-    console.log('Modal open ',modalOpen);
+    //console.log('Modal open ',modalOpen);
 
     const onSubmit = (data: ReviewFormSchema) => console.log(data);
     const ratingOnChange = (rating:number)=>{

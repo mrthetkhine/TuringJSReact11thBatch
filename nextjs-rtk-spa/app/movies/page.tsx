@@ -8,50 +8,20 @@ import Button from "@mui/material/Button";
 import useAuth from "@/lib/hooks/useAuth";
 import {useRouter} from "next/navigation";
 import withProtectedRoute from "@/app/components/withProtectedRoute";
+import {useGetAllMoviesQuery} from "@/lib/features/movie/movieApiSlice";
 
-const movies:Movie[] = [
-    {
-        "_id": "688f468ad5f7e98a92cc5843",
-        "title": "Avata",
-        "director": {
-            "name": "Jame Cameron",
-            "phoneNo": "09993",
-            "_id": "688f468ad5f7e98a92cc5844"
-        },
-        "year": 2010,
 
-    },
-    {
-        "_id": "688f46b729a6302912d7c91b",
-        "title": "Avata 2",
-        "director": {
-            "name": "Christopher Nolan",
-            "phoneNo": "09993",
-            "_id": "6890b2664bae71340936152d"
-        },
-        "year": 2500,
-
-    },
-    {
-        "_id": "688f46fedf30293259412334",
-        "title": "Inspection",
-        "director": {
-            "name": "Christopher Nolan",
-            "phoneNo": "09993",
-            "_id": "688f46fedf30293259412335"
-        },
-        "year": 2010,
-
-    },
-]
 function MoviePage()
 {
+    const { data:response, isError, isLoading, isSuccess,refetch } = useGetAllMoviesQuery(undefined,{});
     const {open,handleOpen,handleClose} = useModal();
 
     return (<div>
         <Button size="large" variant={"contained"} onClick={handleOpen}>New</Button>
         <MovieEntry open={open} handleOpen={handleOpen} handleClose={handleClose}/>
-        <MovieListUi movies={movies}/>
+        {
+            response?.data && <MovieListUi movies={response?.data}/>
+        }
     </div>);
 
 }
