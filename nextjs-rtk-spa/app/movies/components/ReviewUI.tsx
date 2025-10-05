@@ -9,11 +9,13 @@ import Button from "@mui/material/Button";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ReviewEntry from "@/app/movies/components/ReviewEntry";
+import {useDeleteReviewMutation} from "@/lib/features/review/reviewApiSlice";
 interface ReviewUIProps {
     review: Review;
 }
 export default function ReviewUI({review}:ReviewUIProps) {
     const [open, setOpen] = React.useState(false);
+    const [deleteReview,deleteReviewResult] = useDeleteReviewMutation();
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -24,8 +26,23 @@ export default function ReviewUI({review}:ReviewUIProps) {
         console.log('On Edit ');
         handleClickOpen();
     };
+    const onDeleteHandler =()=>{
+        let result = window.confirm("Are you sure you want to delete this review?");
+        if (result) {
+            console.log('Delete review ',review);
+            deleteReview(review)
+                .unwrap()
+                .then(data=>{
+                    console.log('delete review success');
+                },error=>{
+                    console.log('delete review error');
+                });
+        }
+    }
     return(<div >
-        <ReviewEntry modalOpen={open} handleOpen={handleClickOpen} handleClose={handleClose} reviewToEdit={review}/>
+        <ReviewEntry
+            movieId={review.movie}
+            modalOpen={open} handleOpen={handleClickOpen} handleClose={handleClose} reviewToEdit={review}/>
         <Card sx={{ maxWidth: 345 }} className={styles.review}>
             <Stack spacing={1}>
                 <Rating name="half-rating" defaultValue={review.rating}
@@ -44,7 +61,7 @@ export default function ReviewUI({review}:ReviewUIProps) {
                 <EditIcon/>
             </Button>
             &nbsp;
-            <Button type="button" variant="contained" color="primary">
+            <Button type="button" variant="contained" color="primary" onClick={onDeleteHandler}>
                 <DeleteIcon/>
             </Button>
         </Card>

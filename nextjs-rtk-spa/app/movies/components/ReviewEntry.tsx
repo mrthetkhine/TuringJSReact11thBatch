@@ -11,14 +11,16 @@ import {MovieFormSchema, ReviewFormData, ReviewFormSchema} from "@/lib/schema/sc
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useEffect} from "react";
 import {Review} from "@/lib/model/model";
+import {useSaveReviewMutation, useUpdateReviewMutation} from "@/lib/features/review/reviewApiSlice";
 
 interface ReviewEntryProps{
+    movieId:string;
     modalOpen : boolean,
     handleClose: ()=> void,
     handleOpen: ()=> void,
     reviewToEdit?:Review;
 }
-export default function ReviewEntry({modalOpen,handleOpen,handleClose,reviewToEdit}:ReviewEntryProps)
+export default function ReviewEntry({movieId, modalOpen,handleOpen,handleClose,reviewToEdit}:ReviewEntryProps)
 {
     const {
         register,
@@ -36,8 +38,47 @@ export default function ReviewEntry({modalOpen,handleOpen,handleClose,reviewToEd
     });
 
     //console.log('Modal open ',modalOpen);
+    const [saveReview,saveReviewResult] = useSaveReviewMutation();
+    const [updateReview,updateReviewResult] = useUpdateReviewMutation();
+    const onSubmit = (data: ReviewFormSchema) =>{
+        if(reviewToEdit)
+        {
+            console.log('Review update ',data);
+            let reviewToUpdate:Review = {
+                ...data,
+                _id: reviewToEdit._id,
+                movie : movieId,
+            };
+            updateReview(reviewToUpdate)
+                .unwrap()
+                .then((data)=>{
+                    console.log('Update Review Success');
+                    handleClose();
+                },(error)=>{
+                    console.log('Update Review Error');
+                    handleClose();
+                })
 
-    const onSubmit = (data: ReviewFormSchema) => console.log(data);
+        }
+        else
+        {
+            console.log('Review to edit ',reviewToEdit);
+            let newReview: Review = {
+                ... data,
+                movie : movieId
+            };
+            saveReview(newReview)
+                .unwrap()
+                .then((data)=>{
+                    console.log('Save Review Success');
+                    handleClose();
+                },(error)=>{
+                    console.log('Save Review Error');
+                    handleClose();
+                })
+
+        }
+    };
     const ratingOnChange = (rating:number)=>{
         console.log('Rating on change ',rating);
         setValue('rating',rating);

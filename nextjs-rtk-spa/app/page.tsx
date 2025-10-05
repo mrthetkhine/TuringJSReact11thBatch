@@ -1,11 +1,13 @@
+'use client';
 import type { Metadata } from "next";
 import { Counter } from "./components/counter/Counter";
 import SimpleForm from "@/app/components/form/SimpleForm";
 import NormalForm from "@/app/components/form/NormalForm";
 import CustomForm from "@/app/components/custom-form/CustomForm";
 import FormWithMui from "@/app/components/form/FormWithMui";
+import withProtectedRoute from "@/app/components/withProtectedRoute";
 
-export default function IndexPage() {
+ function IndexPage() {
   return (<div>
    {/* <Counter />;*/}
    {/* <SimpleForm/>*/}
@@ -14,7 +16,5 @@ export default function IndexPage() {
    {/* <FormWithMui/>*/}
   </div>);
 }
-
-export const metadata: Metadata = {
-  title: "Redux Toolkit",
-};
+const ProtectedIndexPage = withProtectedRoute(IndexPage);
+export default ProtectedIndexPage;

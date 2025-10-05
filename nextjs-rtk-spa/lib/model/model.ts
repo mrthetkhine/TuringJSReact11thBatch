@@ -13,7 +13,7 @@ export interface Movie
 }
 export interface Review
 {
-    _id: string;
+    _id?: string;
     movie: string;
     rating: number;
     review: string;

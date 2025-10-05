@@ -71,7 +71,11 @@ export default function MovieDetailsPage()
         }
         <div style={{padding:'10px'}}>
             <Button size="large" variant={"contained"} onClick={newButtonHandler}>New Review</Button>
-            <ReviewEntry modalOpen={open} handleOpen={handleOpen} handleClose={handleClose}/>
+            <ReviewEntry
+                         movieId={id}
+                         modalOpen={open}
+                         handleOpen={handleOpen}
+                         handleClose={handleClose}/>
         </div>
         <div >
             {

@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="nextjs-typescript-redux" />
+    <orderEntry type="module" module-name="package" />
   </component>
 </module>

@@ -65,8 +65,34 @@ export const movieApiSlice = createApi({
                 } catch {}
             },
         }),
+        //Optimistics
+        deleteMovie:build.mutation<ApiResponse<Movie>,Movie>({
+            query: (movie:Movie) => ({
+                url: `api/movies/${movie._id}`,
+                method: 'DELETE',
+            }),
+            async onQueryStarted(movie, { dispatch, queryFulfilled }) {
+                console.log('onQueryStarted deleteMovie ',movie);
+                const patchResult = dispatch(
+                    movieApiSlice.util.updateQueryData('getAllMovies', undefined, (draft) => {
+                        console.log('Draft ',draft);
+                        let data  = draft.data.filter((mv:Movie)=>mv._id != movie._id);
+                        draft.data = data;
+                    }),
+                )
+                try {
+                    await queryFulfilled
+                } catch {
+                    patchResult.undo()
+
+                }
+            },
+        }),
     }),
 });
-export const{useGetAllMoviesQuery,
+export const{
+    useGetAllMoviesQuery,
     useSaveMovieMutation,
-    useUpdateMovieMutation}= movieApiSlice;
+    useUpdateMovieMutation,
+    useDeleteMovieMutation,
+}= movieApiSlice;
