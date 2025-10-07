@@ -3,7 +3,6 @@ import { styled, Container, Box } from "@mui/material";
 import React, { useState } from "react";
 import Header from "@/app/(DashboardLayout)/layout/header/Header";
 import Sidebar from "@/app/(DashboardLayout)/layout/sidebar/Sidebar";
-import withProtectedRoute from "@/app/(DashboardLayout)/components/shared/withProtectedRoute";
 
 
 const MainWrapper = styled("div")(() => ({
@@ -27,12 +26,12 @@ interface Props {
 
 
 
-function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   return (
     <MainWrapper className="mainwrapper">
@@ -64,9 +63,7 @@ function RootLayout({
           {/* ------------------------------------------- */}
           {/* Page Route */}
           {/* ------------------------------------------- */}
-          <Box sx={{ minHeight: "calc(100vh - 170px)" }}>
-              {children}
-          </Box>
+          <Box sx={{ minHeight: "calc(100vh - 170px)" }}>{children}</Box>
           {/* ------------------------------------------- */}
           {/* End Page */}
           {/* ------------------------------------------- */}
@@ -75,5 +72,3 @@ function RootLayout({
     </MainWrapper>
   );
 }
-const ProtectedRootLayout = withProtectedRoute(RootLayout);
-export default ProtectedRootLayout;

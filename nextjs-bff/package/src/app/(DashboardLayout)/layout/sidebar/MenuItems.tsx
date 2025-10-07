@@ -18,7 +18,7 @@ const Menuitems = [
   },
   {
     id: uniqueId(),
-    title: "Movies",
+    title: "Movie",
     icon: IconMovie,
     href: "/movies",
   },
@@ -28,7 +28,6 @@ const Menuitems = [
     icon: IconLayoutDashboard,
     href: "/",
   },
-
   {
     navlabel: true,
     subheader: "UTILITIES",
