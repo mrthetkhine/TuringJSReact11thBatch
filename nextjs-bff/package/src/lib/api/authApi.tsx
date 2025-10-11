@@ -1,6 +1,6 @@
 
-import axiosInstance from "../axiosInstance";
-import {LoginFormValue} from "../schema/loginShema";
+import axiosInstance from "../../app/axiosInstance";
+
 
 export async function loginApi(user:any)
 {

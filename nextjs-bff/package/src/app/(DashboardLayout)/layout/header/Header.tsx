@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge, Button } from '@mui/material';
 import PropTypes from 'prop-types';
@@ -5,17 +6,17 @@ import Link from 'next/link';
 // components
 import Profile from './Profile';
 import { IconBellRinging, IconMenu } from '@tabler/icons-react';
+import getAuthToken from "@/lib/api/utils";
 
 interface ItemType {
   toggleMobileSidebar:  (event: React.MouseEvent<HTMLElement>) => void;
 }
 
-const Header = ({toggleMobileSidebar}: ItemType) => {
+const Header =async ({toggleMobileSidebar}: ItemType) => {
 
   // const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
   // const lgDown = useMediaQuery((theme) => theme.breakpoints.down('lg'));
-
-
+    //let token = await getAuthToken();
   const AppBarStyled = styled(AppBar)(({ theme }) => ({
     boxShadow: 'none',
     background: theme.palette.background.paper,
@@ -61,12 +62,15 @@ const Header = ({toggleMobileSidebar}: ItemType) => {
 
         </IconButton>
         <Box flexGrow={1} />
-        <Stack spacing={1} direction="row" alignItems="center">
-          <Button variant="contained" component={Link} href="/authentication/login"   disableElevation color="primary" >
-            Login
-          </Button>
-          <Profile />
-        </Stack>
+        {
+            <Stack spacing={1} direction="row" alignItems="center">
+                <Button variant="contained" component={Link} href="/authentication/login"   disableElevation color="primary" >
+                    Login
+                </Button>
+                <Profile />
+            </Stack>
+        }
+
       </ToolbarStyled>
     </AppBarStyled>
   );

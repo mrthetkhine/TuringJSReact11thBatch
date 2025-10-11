@@ -15,6 +15,7 @@ let todosRouter = require('./routes/todos');
 let testRouter = require('./routes/test');
 let movieRouter = require('./routes/movies');
 let reviewRouter = require('./routes/reviews');
+var tokenVerifier = require('./routes/token_verifier');
 let auth = require('./middlewares/auth');
 var app = express();
 
@@ -40,6 +41,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 //app.use('/test',testRouter);
+app.use('/api/verify',auth.verifyUserToken,tokenVerifier);
 app.use('/api/todos',/* auth.verifyUserToken,*/ todosRouter);
 app.use('/api/movies'/*,auth.verifyUserToken*/,movieRouter);
 app.use('/api/reviews'/*,auth.verifyUserToken*/, reviewRouter);

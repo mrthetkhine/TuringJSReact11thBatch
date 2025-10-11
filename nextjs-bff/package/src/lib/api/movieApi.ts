@@ -1,5 +1,5 @@
 import {ApiResponse, Movie} from "@/types/movies";
-import axiosInstance from "../axiosInstance";
+import axiosInstance from "../../app/axiosInstance";
 
 
 export async function getAllMovies():Promise<Movie[]>

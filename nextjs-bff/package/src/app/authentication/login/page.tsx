@@ -44,9 +44,7 @@ const Login2 = () => {
               elevation={9}
               sx={{ p: 4, zIndex: 1, width: "100%", maxWidth: "500px" }}
             >
-              <Box display="flex" alignItems="center" justifyContent="center">
-                <Logo />
-              </Box>
+
               <AuthLogin
                 subtext={
                   <Typography
@@ -55,7 +53,7 @@ const Login2 = () => {
                     color="textSecondary"
                     mb={1}
                   >
-                    Your Social Campaigns
+                    Login
                   </Typography>
                 }
                 subtitle={
@@ -65,24 +63,8 @@ const Login2 = () => {
                     justifyContent="center"
                     mt={3}
                   >
-                    <Typography
-                      color="textSecondary"
-                      variant="h6"
-                      fontWeight="500"
-                    >
-                      New to Modernize?
-                    </Typography>
-                    <Typography
-                      component={Link}
-                      href="/authentication/register"
-                      fontWeight="500"
-                      sx={{
-                        textDecoration: "none",
-                        color: "primary.main",
-                      }}
-                    >
-                      Create an account
-                    </Typography>
+
+
                   </Stack>
                 }
               />

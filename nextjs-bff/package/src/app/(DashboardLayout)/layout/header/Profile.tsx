@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 
 import { IconListCheck, IconMail, IconUser } from "@tabler/icons-react";
+import {logoutAction} from "@/lib/actions/authAction";
 
 const Profile = () => {
   const [anchorEl2, setAnchorEl2] = useState(null);
@@ -22,6 +23,9 @@ const Profile = () => {
     setAnchorEl2(null);
   };
 
+  const logoutHandler = ()=>{
+    logoutAction();
+  };
   return (
     <Box>
       <IconButton
@@ -83,10 +87,9 @@ const Profile = () => {
         </MenuItem>
         <Box mt={1} py={1} px={2}>
           <Button
-            href="/authentication/login"
             variant="outlined"
             color="primary"
-            component={Link}
+            onClick={logoutHandler}
             fullWidth
           >
             Logout

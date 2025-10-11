@@ -1,5 +1,5 @@
 import { ApiResponse, Review } from "@/types/movies";
-import axiosInstance from "../axiosInstance";
+import axiosInstance from "../../app/axiosInstance";
 
 export async function getAllReviewByMovieId(movieId:string):Promise<Review[]>
 {
