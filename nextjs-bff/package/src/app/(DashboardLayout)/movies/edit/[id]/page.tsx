@@ -8,22 +8,23 @@ import {getMovieById} from "@/lib/api/movieApi";
 import Link from "next/link";
 import React from "react";
 import {Stack} from "@mui/system";
+import NewMovieForm from "@/app/(DashboardLayout)/movies/components/NewMovieForm";
 
 
-interface MovieDetailsPageProps {
+interface MovieEditPageProps {
     params: Promise<{
         id: string; // The dynamic route parameter 'slug'
     }>;
 }
 
-const MovieDetailsPage = async ({params}:MovieDetailsPageProps) => {
+const MovieEditPage = async ({params}:MovieEditPageProps) => {
 
     const {id} = await params;
     console.log('Movie Page ',id);
 
     const movie:Movie = await getMovieById(id);
     return (
-        <PageContainer title="Movie Details Page" description="Movie Details Page">
+        <PageContainer title="Movie Edit Page" description="Movie Edit Page">
             <Button
                 color="primary"
                 variant="contained"
@@ -34,10 +35,12 @@ const MovieDetailsPage = async ({params}:MovieDetailsPageProps) => {
                 Back
             </Button>
 
-            <MovieDetailsUI movie={movie}/>
+           <div>
+               <NewMovieForm movieToEdit={movie} />
+           </div>
         </PageContainer>
     );
 };
 
-export default MovieDetailsPage;
+export default MovieEditPage;
 

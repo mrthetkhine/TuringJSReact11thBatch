@@ -50,6 +50,7 @@ export async function loginAction(previousState:any,formData: FormData):Promise<
                 cookieStore.set('auth-token',authResult.token,{
                     httpOnly:true,
                 });
+                cookieStore.set('login','true');
             }
         }
         catch(err){
@@ -73,5 +74,6 @@ export  async  function logoutAction()
     const cookieStore = await cookies()
     cookieStore.delete( 'auth-token');
     cookieStore.delete( 'redirectUrl');
+    cookieStore.delete('login');
     redirect('/authentication/login');
 }

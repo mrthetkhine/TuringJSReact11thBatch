@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import Menuitems from "./MenuItems";
 import { Box, Typography } from "@mui/material";
