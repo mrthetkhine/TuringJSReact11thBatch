@@ -1,13 +1,14 @@
 
-import {Box, Button, Grid, Typography} from '@mui/material';
+import {Box, Button, CircularProgress, Grid, Typography} from '@mui/material';
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
 import { Movie } from '@/types/movies';
 import MovieDetailsUI from "@/app/(DashboardLayout)/movies/components/MovieDetailsUI";
 import {getMovieById} from "@/lib/api/movieApi";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import {Stack} from "@mui/system";
+import ReviewListUI from "@/app/(DashboardLayout)/movies/components/ReviewListUI";
 
 
 interface MovieDetailsPageProps {
@@ -33,8 +34,12 @@ const MovieDetailsPage = async ({params}:MovieDetailsPageProps) => {
             >
                 Back
             </Button>
-
-            <MovieDetailsUI movie={movie}/>
+            <Suspense fallback={<CircularProgress/>}>
+                <MovieDetailsUI movie={movie}/>
+            </Suspense>
+            <Suspense fallback={<CircularProgress/>}>
+                <ReviewListUI movieId={id}/>
+            </Suspense>
         </PageContainer>
     );
 };

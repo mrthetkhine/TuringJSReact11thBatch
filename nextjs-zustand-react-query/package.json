@@ -1,0 +1,34 @@
+{
+  "name": "nextjs-zustand-react-query",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next -p 8080",
+    "build": "next build",
+    "start": "next start",
+    "check": "tsc"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@hookform/resolvers": "^5.2.2",
+    "@mui/material": "^7.0.2",
+    "@mui/material-nextjs": "^7.0.2",
+    "@redux-devtools/extension": "^3.3.0",
+    "@tanstack/react-query": "^5.90.2",
+    "@tanstack/react-query-devtools": "^5.77.0",
+    "axios": "^1.9.0",
+    "next": "15.5.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-hook-form": "^7.65.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}
