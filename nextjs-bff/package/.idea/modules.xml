@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../backend/.idea/backend.iml" filepath="$PROJECT_DIR$/../../backend/.idea/backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../TuringReact10thBatch/next-zustand/.idea/next-zustand.iml" filepath="$PROJECT_DIR$/../../../TuringReact10thBatch/next-zustand/.idea/next-zustand.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../nextjs-rtk-spa/.idea/nextjs-rtk-spa.iml" filepath="$PROJECT_DIR$/../../nextjs-rtk-spa/.idea/nextjs-rtk-spa.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../nextjs-zustand-react-query/.idea/nextjs-zustand-react-query.iml" filepath="$PROJECT_DIR$/../../nextjs-zustand-react-query/.idea/nextjs-zustand-react-query.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/package.iml" filepath="$PROJECT_DIR$/.idea/package.iml" />
     </modules>

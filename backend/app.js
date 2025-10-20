@@ -43,8 +43,8 @@ app.use('/api/users', usersRouter);
 //app.use('/test',testRouter);
 app.use('/api/verify',auth.verifyUserToken,tokenVerifier);
 app.use('/api/todos',/* auth.verifyUserToken,*/ todosRouter);
-app.use('/api/movies',auth.verifyUserToken,movieRouter);
-app.use('/api/reviews',auth.verifyUserToken, reviewRouter);
+app.use('/api/movies'/*,auth.verifyUserToken*/,movieRouter);
+app.use('/api/reviews'/*,auth.verifyUserToken*/, reviewRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

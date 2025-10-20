@@ -11,5 +11,6 @@
     <orderEntry type="module" module-name="backend" />
     <orderEntry type="module" module-name="nextjs-zustand-react-query" />
     <orderEntry type="module" module-name="next-zustand" />
+    <orderEntry type="module" module-name="nextjs-rtk-spa" />
   </component>
 </module>

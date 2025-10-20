@@ -1,5 +1,5 @@
 'use client';
-import {apiLoadAllTodos} from "@/lib/api/todoApi";
+import {apiLoadAllTodos} from "@/lib/hooks/api/todoApi";
 import {useQuery} from "@tanstack/react-query";
 
 export default function TodosPage()

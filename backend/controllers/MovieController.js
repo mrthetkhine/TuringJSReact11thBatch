@@ -1,4 +1,8 @@
 const movieService = require('../services/MovieService');
+async function delay(ms)
+{
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 async function getAllMovie(req,res,next)
 {
     let movies= await movieService.getAllMovies();
@@ -94,6 +98,7 @@ async function updateMovie(req,res,next)
 }
 async function deleteMovie(req,res,next)
 {
+    await delay(5000);
     let id = req.params.id;
     try
     {
