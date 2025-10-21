@@ -14,13 +14,16 @@ export const MovieFormData = z.object({
 export type MovieFormSchema = z.infer<typeof MovieFormData>;
 
 export const LoginFormData = z.object({
+
     username:z.string().min(1, "Username is required."),
     password:z.string().min(1, "Password is required."),
 })
 export type LoginFormSchema = z.infer<typeof LoginFormData>;
 
 export const ReviewFormData = z.object({
+    _id:z.string().optional(),
     rating: z.number().min(1, "Rating is required."),
     review:z.string().min(1, "Review is required."),
+    movie:z.string().optional(),
 });
 export type ReviewFormSchema = z.infer<typeof ReviewFormData>

@@ -6,5 +6,4 @@ export default interface Review
     rating:number;
     review:string;
     movie:string;
-
 }

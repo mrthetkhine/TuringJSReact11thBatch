@@ -17,6 +17,13 @@ export async function apiSaveMovie(movie:Movie):Promise<Movie>
 
     return response.data.data;
 }
+export async function apiUpdateMovie(movie:Movie):Promise<Movie>
+{
+    console.log("apiUpdateMovie");
+    const response =  await axiosInstance.put<ApiResponse<Movie>>(`/api/movies/${movie._id}`,movie);
+
+    return response.data.data;
+}
 export async function apiDeleteMovie(movie:Movie):Promise<Movie>
 {
     console.log("apiDeleteMovie");

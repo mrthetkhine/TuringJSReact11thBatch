@@ -1,5 +1,5 @@
 import { useMutation, useQuery} from "@tanstack/react-query";
-import {apiDeleteMovie, apiLoadAllMovies, apiSaveMovie} from "@/lib/hooks/api/movieApi";
+import {apiDeleteMovie, apiLoadAllMovies, apiSaveMovie, apiUpdateMovie} from "@/lib/hooks/api/movieApi";
 import {Movie} from "@/lib/types/movies";
 import {queryClient} from "@/lib/hooks/queryClient";
 
@@ -11,6 +11,13 @@ export const useMovies =()=>{
         queryFn:apiLoadAllMovies,
        /* refetchOnWindowFocus: false*/
     })
+}
+export const useMovieById   =(movieId:string)=>{
+    console.log('Use Movie by Id ',movieId);
+    const data = queryClient.getQueryData<Movie[]>(['movies'])??[];
+    return {
+        movie:data?.filter((movie:Movie)=>movie._id===movieId)[0]
+    }
 }
 //Pessimistic update
 export const useMutationSaveMovie =()=>{
@@ -24,6 +31,20 @@ export const useMutationSaveMovie =()=>{
             // Invalidate a specific query to refetch
             //queryClient.invalidateQueries({ queryKey: ['movies'] })
             queryClient.setQueryData(["movies"],(oldState:Movie[]) => [...oldState,data]);
+        }
+    })
+}
+//Pessimistic update
+export const useMutationUpdateMovie =()=>{
+    console.log("updateMovie");
+    return useMutation({
+        mutationFn:(movie:Movie)=>{
+            return apiUpdateMovie(movie);
+        },
+        onSuccess: (data) => {
+            // Invalidate a specific query to refetch
+            //queryClient.invalidateQueries({ queryKey: ['movies'] })
+            queryClient.setQueryData(["movies"],(oldState:Movie[]) => oldState.map(mv=>mv._id==data._id?data:mv));
         }
     })
 }

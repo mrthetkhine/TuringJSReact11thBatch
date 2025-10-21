@@ -3,7 +3,7 @@ import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, TextFie
 import {useForm} from "react-hook-form";
 import {MovieFormData, MovieFormSchema} from "@/lib/schema/schema";
 import {zodResolver} from "@hookform/resolvers/zod";
-import { useMutationSaveMovie} from "@/lib/hooks/movieHook";
+import {useMutationSaveMovie, useMutationUpdateMovie} from "@/lib/hooks/movieHook";
 interface MovieDialogProps{
     open:boolean,
     handleClose:()=>void,
@@ -12,6 +12,7 @@ interface MovieDialogProps{
 export default function MovieDialog({open,handleClose,movieToEdit}:MovieDialogProps)
 {
     const {mutate:saveMovie} = useMutationSaveMovie();
+    const {mutate:updateMovie} = useMutationUpdateMovie();
     const defaultDirector:Director  ={
         _id:'',
         name:'',
@@ -58,8 +59,13 @@ export default function MovieDialog({open,handleClose,movieToEdit}:MovieDialogPr
             });
         }
         else {
-
             console.log('update movie');
+            updateMovie(movie,{
+                onSuccess:()=> handleClose(),
+                onError:(error:any)=>{
+                    console.log('Error ',error);
+                }
+            });
         }
 
 
