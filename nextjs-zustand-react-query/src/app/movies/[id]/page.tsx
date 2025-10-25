@@ -10,6 +10,7 @@ import { useMovieById } from "@/lib/hooks/movieHook";
 import {useReviewsByMovieId} from "@/lib/hooks/reviewHook";
 import ReviewList from "@/app/movies/components/ReviewList";
 import ReviewEntry from "../components/ReviewEntry";
+import AuthenticatedRoute from "@/app/components/AuthenticatedRoute";
 
 
 
@@ -77,5 +78,5 @@ function MovieDetailsPage({
 
     </div>);
 }
-//export default IsAuth(MovieDetailsPage);
-export default MovieDetailsPage
+
+export default AuthenticatedRoute( MovieDetailsPage);

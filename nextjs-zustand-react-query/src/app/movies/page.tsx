@@ -4,6 +4,7 @@ import {Movie} from "@/lib/types/movies";
 import MovieListUI from "@/app/movies/components/MovieListUI";
 import MovieEntry from "@/app/movies/components/MovieEntry";
 import {useMovies} from "@/lib/hooks/movieHook";
+import AuthenticatedRoute from "@/app/components/AuthenticatedRoute";
 /*const movies:Movie[] =[
     {
         "_id": "688f468ad5f7e98a92cc5843",
@@ -49,7 +50,7 @@ import {useMovies} from "@/lib/hooks/movieHook";
 
     },
 ];*/
-export default function MoviePage() {
+function MoviePage() {
     const { data:movies, isPending, isFetching,isSuccess } =  useMovies();
     return (<div>
         <MovieEntry/>
@@ -59,3 +60,4 @@ export default function MoviePage() {
 
     </div>);
 }
+export default AuthenticatedRoute(MoviePage);

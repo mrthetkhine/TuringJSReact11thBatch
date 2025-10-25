@@ -9,7 +9,7 @@ let id = 3;
 
 export default function TodoUI()
 {
-    const {todos,addTodo,deleteTodo} = useBoundStore();
+    const {todos,addTodo,deleteTodo,updateTodo} = useBoundStore();
     const [newTodo,setNewTodo]=useState('');
 
     const btnAddHandler=()=>{
@@ -21,6 +21,12 @@ export default function TodoUI()
     };
     const btnDeleteHandler=(todo:TodoModel)=>{
         deleteTodo(todo);
+    }
+    const btnUpdateHandler=(todo:TodoModel)=>{
+        updateTodo({
+            ...todo,
+            title:'Update '+todo.title
+        });
     }
     return (<div>
             <TextField
@@ -43,6 +49,13 @@ export default function TodoUI()
                             onClick={()=>btnDeleteHandler(todo)}
                     >
                         Delete
+                    </Button>
+                    &nbsp;
+                    <Button variant={"contained"}
+                            type={"button"}
+                            onClick={()=>btnUpdateHandler(todo)}
+                    >
+                        Update
                     </Button>
                 </div>)
             }

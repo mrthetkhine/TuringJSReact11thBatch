@@ -4,12 +4,13 @@
 import { usePathname } from "next/navigation";
 import {AppBar, Box,  IconButton, Toolbar} from "@mui/material";
 import LinkMenu from "@/app/components/LinkMenu";
+import useAuth from "@/lib/hooks/authHook";
 /*import LinkMenu from "./LinkMenu";
 import ProtectedRoute from "@/app/components/ProtectedRoute";
 import useAuth from "@/app/hooks/useAuth";*/
 
 export const Nav = () => {
-  //const auth = useAuth();
+  const auth = useAuth();
   return (
 
       <Box  sx={{
@@ -31,8 +32,19 @@ export const Nav = () => {
 
                   </IconButton>
                   <LinkMenu url={'/'} label={"Home"}/>
-                  <LinkMenu url={'/todos'} label={"Todos"}/>
-                  <LinkMenu url={'/movies'} label={"Movies"}/>
+                  {
+                      !auth && <LinkMenu url={'/login'} label={"Login"}/>
+                  }
+
+                  {
+                      auth && <LinkMenu url={'/todos'} label={"Todos"}/>
+                  }
+                  {
+                      auth &&  <LinkMenu url={'/movies'} label={"Movies"}/>
+                  }
+                  {
+                      auth && <LinkMenu url={'/logout'} label={"Logout"}/>
+                  }
               </Toolbar>
           </AppBar>
       </Box>

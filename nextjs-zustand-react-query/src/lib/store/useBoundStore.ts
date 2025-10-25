@@ -4,12 +4,13 @@ import {CounterSlice, createCounterSlice} from "./counter/counter-store";
 import {devtools} from "zustand/middleware";
 import {immer} from "zustand/middleware/immer";
 import {createTodoSlice, TodoSlice} from "@/lib/store/todo/todo-store";
-//import {AuthSlice, createAuthSlice} from "@/stores/auth/auth-slice";
+import {AuthSlice, createAuthSlice} from "@/lib/store/auth/auth-slice";
 
 
-export type MyState = CounterSlice & TodoSlice; //& AuthSlice;
+
+export type MyState = CounterSlice & TodoSlice & AuthSlice;
 export const useBoundStore = create<MyState>()(devtools(immer((...a) => ({
     ...createCounterSlice(...a),
     ...createTodoSlice(...a),
-    //...createAuthSlice(...a),
+    ...createAuthSlice(...a),
 }))))
